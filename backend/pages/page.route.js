@@ -7,7 +7,7 @@ import {
   list,
   details,
   loadContent,
-  delHome,} from './page.controller';
+  delHome,postData} from './page.controller';
 const pageRoute = express.Router();
 
 pageRoute.post('/', create);
@@ -22,4 +22,7 @@ pageRoute.get('/:pageId', details);
 pageRoute.get('/:pageId/content', loadContent)
 
 pageRoute.delete('/',delHome);
+
+
+// pageRoute.post("/Signup",postData)
 export default pageRoute;

@@ -19,7 +19,7 @@ const Editor = () => {
   useEffect(() => {
     async function getAllAssets() {
       try {
-        const response = await axios.get(`${API_HOST}assets/pages`);
+        const response = await axios.get(`${API_HOST}assets/`);
         // assets
         setAssets(response.data);
         console.log(assets)

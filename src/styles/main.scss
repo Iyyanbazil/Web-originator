@@ -189,32 +189,34 @@ html {
 }
 
 /** Assets **/
-.gjs-am-meta,
-.gjs-am-close,
-.gjs-am-file-uploader,
-.gjs-am-assets-header {
-  display: none;
-}
+// .gjs-am-meta,
+// .gjs-am-close,
+// .gjs-am-file-uploader,
+// .gjs-am-assets-header {
+//   display: none;
+// }
 
-.gjs-am-assets-cont {
-  width: 100%;
-}
+// .gjs-am-assets-cont {
+//   width: 100%;
+// }
 
-.gjs-am-assets {
-  justify-content: space-between;
-  display: flex;
-  flex-wrap: wrap;
-}
+// .gjs-am-assets {
+//   justify-content: space-between;
+//   display: flex;
+//   flex-wrap: wrap;
+// }
 
-.gjs-am-asset-image {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  display: contents;
-}
+// .gjs-am-asset-image {
+//   margin-top: 1rem;
+//   margin-bottom: 1rem;
+//   display: contents;
+// }
 
-.gjs-am-preview-cont {
-  margin-top: 1rem;
-}
+// .gjs-am-preview-cont {
+//   margin-top: 1rem;
+// }
+
+
 .gjs-block-label {
   .fa {
     font-size: 25px;

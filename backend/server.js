@@ -4,6 +4,7 @@ import cors from 'cors'
 import path from 'path'
 // import uiRoute from './ui/ui.route'
 import pageRoute from './pages/page.route'
+import userRoute from "./signup/route"
 const app=express()
 app.use(express.json())
 app.use(cors({credentials: true, origin: 'http://localhost:3000'}))
@@ -18,7 +19,11 @@ app.set('view engine','hbs');
 // res.render("home",{title:"home page"})
 // })
 // app.use('/',uiRoute)
-app.all('/',pageRoute)
+
+// app.all("/login",userRoute)
+app.all("/",userRoute)
+// app.use("/Signup",userRoute)
+app.use("/login",userRoute)
 app.use("/pages",pageRoute)
 // mongo db setting
 

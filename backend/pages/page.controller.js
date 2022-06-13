@@ -46,3 +46,23 @@ const {id}=req.body
 const data=await homeDel(id);
 res.json(data)
 }
+
+// export const postData = (req, res) => {
+//     const { Fname, Lname, email, password, Cpassword } = req.body;
+//     User.findOne({ email: email }, (err, user) => {
+//       if (user) {
+//       //   res.send('user exist');
+//       } else {
+//         const user = new User({
+//           Fname,
+//           Lname,
+//           email,
+//           password,
+//           Cpassword,
+//         });
+//         user.save();
+//       //   console.log(req.body);
+//       }
+//     });
+//   };
+  
