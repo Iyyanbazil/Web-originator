@@ -5,11 +5,21 @@ import { useEffect } from 'react';
 import data from "./Data/dataHome.json"
 import Navbar from './navbar';
 import Login from './login';
-
+import { useContext } from "react";
+import { userContext } from "./userContext";
 const Home1 = () => {
-  useEffect(() => {
-    <Login />;
-  }, []);
+//  *********to save user******
+// const [user,setuser]=useContext(userContext)
+// useEffect(() => {
+//   const data=window.localStorage.getItem('user')
+//   setuser(JSON.parse(data))
+//    }, [])
+   
+//  useEffect(() => {
+//    window.localStorage.setItem('user',JSON.stringify(user))
+//  }, [user])
+
+
 
   const newData = data.map((data) => {
     return (
@@ -24,7 +34,8 @@ const Home1 = () => {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
+      {/* <h1>{user.Fname}</h1> */}
       <div className='home_main'>
         {/* <h1 className='main_heading'>Start Creating Website.</h1> */}
         <img src="/images/5.gif" className='home-img-create'/>

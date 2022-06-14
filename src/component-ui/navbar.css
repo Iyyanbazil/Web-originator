@@ -59,10 +59,7 @@
     
     /* cursor: pointer; */
 }
-.Home:hover{
-    /* color: purple; */
-    /* background-color: purple; */
-}
+
 /* .Home:link,.Home:visited{
     color: yellow
 } */
@@ -103,5 +100,30 @@ width: 200px;
     background-color: rgb(231, 78, 78);
     padding: 2px 10px 2px 10px;
     border-radius: 8px;  
+}
+.Home-after-login{
+    margin-right: 50px;
+    /* margin-top: 40px; */
+    /* position: relative;
+    top: 15px;
+    right:10px; */
+    text-transform: capitalize;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.select-navbar{
+  height: 100px;
+}
+.button-name-nav{
+    text-transform: uppercase;
+    border: none;
+    margin-right: 20px;
+}
+#dropdownMenuButton1{
+    text-transform: uppercase;
+    border: none;
+    margin-right: 20px;
+    /* font-size: 20px; */
+   
 }
 

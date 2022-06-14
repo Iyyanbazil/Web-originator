@@ -9,6 +9,8 @@ import Login from "./component-ui/login";
 import CreateBtn from "./component-ui/createBtn";
 import Support from "./component-ui/Support";
 import Signup from "./component-ui/singup";
+import NavBar from "./component-ui/navbar";
+import {UserProvider} from './component-ui/userContext'
 function App() {
   const dispatch = useDispatch();
 
@@ -18,16 +20,24 @@ function App() {
 
   return (
     <Router>
+      <NavBar/>
       <Switch>
         {/* <Route exact path="/" component={Home}></Route> */}
+        
+      
+        <Route exact path="/create" component={CreateBtn}></Route> 
+        <UserProvider>
         <Route exact path="/" component={Home1}></Route> 
         <Route exact path="/login" component={Login}></Route> 
-        <Route exact path="/create" component={CreateBtn}></Route> 
         <Route exact path="/Support" component={Support}></Route> 
-       < Route exact path="/Signup" component={Signup}></Route> 
-        {/* ****** Editor Route******** */}
         <Route exact path="/createPage" component={Home}></Route> 
         <Route exact path="/editor/:pageId" component={Editor}></Route>
+        < Route exact path="/Signup" component={Signup}></Route> 
+        </UserProvider>
+      
+        {/* ****** Editor Route******** */}
+      
+        
       </Switch>
     </Router>
   );

@@ -25,15 +25,18 @@ res.json({msg:"subbmitted"})
 export const getData=(req,res)=>{
 const {email,password}=req.body
 Users.findOne({email:email},(err,user)=>{
+
   if(user){
+    // res.json({message:`login as ${user.name}`,user:user})
+    // console.log(message);
     if(password === user.password){
-      res.json(user)
-        // res.send({message:`login as ${user.name}`,user:user})
+      console.log(user);
+        res.json({message:"login",user:user})
     }else{
-        res.send({message:"Password not match"})
+        res.json({message:"Password not match"})
     }
-}else{
-    res.send({message:"No such user exist"})
+  }else{
+    res.send({message:"No such user exist"});
 }
 }
 )

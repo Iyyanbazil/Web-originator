@@ -21,9 +21,9 @@ app.set('view engine','hbs');
 // app.use('/',uiRoute)
 
 // app.all("/login",userRoute)
-app.all("/",userRoute)
+// app.all("/",userRoute)
 // app.use("/Signup",userRoute)
-app.use("/login",userRoute)
+app.use("/",userRoute)
 app.use("/pages",pageRoute)
 // mongo db setting
 

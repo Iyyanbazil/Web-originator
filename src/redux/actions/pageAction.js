@@ -10,6 +10,7 @@ export const TYPES = {
   CREATE_PAGE_ERROR: "CREATE_PAGE_ERROR",
   CREATE_PAGE_SUCCESS: "CREATE_PAGE_SUCCESS",
 
+  CREATE_USER_STATE:"CREATE_USER_STATE"
   // PAGE_DELETE_REQUEST:"DELETE_PAGE_REQUEST",
   // PAGE_DELETE_ERROR:"DELETE_PAGE_ERROR",
   // DELETE_PAGE_SUCCESS:"DELETE_PAGE_SUCCESS"
@@ -26,6 +27,15 @@ export const pageLoad = () => async (dispatch) => {
   }
 };
 
+export const createUser=(login)=>async(dispatch)=>{
+  dispatch({type: TYPES.CREATE_USER_STATE});
+  try {
+    const response=  await axios.post("/login", {login})
+    dispatch({type:TYPES.CREATE_USER_STATE,data:response.data})
+  } catch (error) {
+    dispatch({type:TYPES.CREATE_USER_STATE,data:error})
+  }
+}
 export const createPage = (name) => async (dispatch) => {
   dispatch({ type: TYPES.CREATE_PAGE_REQUEST });
   try {

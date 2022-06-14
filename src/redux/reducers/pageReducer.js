@@ -9,6 +9,7 @@ const {
   CREATE_PAGE_ERROR,
   CREATE_PAGE_SUCCESS,
 
+  CREATE_USER_STATE,
   // PAGE_DELETE_REQUEST,
   // PAGE_DELETE_ERROR,
   // DELETE_PAGE_SUCCESS,
@@ -22,6 +23,20 @@ const initialState = {
   createPageLoading: false,
 };
 
+  const user={
+    Fname: "",
+    Lname: "",
+    email: "",
+    password: "",
+    Cpassword: "",
+  }
+
+export const userData =(state=user,action)=>{
+    switch(action.type){
+      case CREATE_USER_STATE:
+        return {user:action.data}
+    }
+  }
 const pageReducer = (state = initialState, action) => {
   switch (action.type) {
     case LIST_PAGE_REQUEST_SEND:
@@ -36,21 +51,7 @@ const pageReducer = (state = initialState, action) => {
         pages: action.data,
        
       };
-
-      // ***** for delete****
-      // case PAGE_DELETE_REQUEST:
-      //   return { ...state, listPageLoading: true, listPageError: "" };
-      // case PAGE_DELETE_ERROR:
-      //   return { ...state, listPageLoading: false, listPageError: action.error };
-      // case DELETE_PAGE_SUCCESS:
-      //   return {
-      //     ...state,
-      //     listPageLoading: false,
-      //     listPageError: "",
-      //     pages: action.data,
-         
-      //   };
-     
+  
 
     case CREATE_PAGE_REQUEST:
       return { ...state, createPageError: "", createPageLoading: true };
