@@ -20,20 +20,25 @@ function App() {
 
   return (
     <Router>
-      <NavBar/>
+      
       <Switch>
         {/* <Route exact path="/" component={Home}></Route> */}
-        
-      
-        <Route exact path="/create" component={CreateBtn}></Route> 
+        <Route exact path="/editor/:pageId" component={Editor}></Route>
+        <>
         <UserProvider>
+        <NavBar/>
+        <Route exact path="/create" component={CreateBtn}></Route> 
         <Route exact path="/" component={Home1}></Route> 
         <Route exact path="/login" component={Login}></Route> 
         <Route exact path="/Support" component={Support}></Route> 
         <Route exact path="/createPage" component={Home}></Route> 
-        <Route exact path="/editor/:pageId" component={Editor}></Route>
+        
         < Route exact path="/Signup" component={Signup}></Route> 
         </UserProvider>
+        </>
+      
+      
+     
       
         {/* ****** Editor Route******** */}
       

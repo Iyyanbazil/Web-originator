@@ -172,7 +172,7 @@ font-size: 15px;
 }
 .Already{
     margin-left: 160px;
-    margin-top: 25px;
+    margin-top: 45px;
     color: blue;
     font-weight: bolder;
 }
@@ -187,4 +187,8 @@ font-size: 15px;
     margin-bottom: 20px;
     font-size: 20px;
     /* font-weight: lighter;s */
+}
+.pass-not-match{
+    color: red;
+    font-weight: bold;
 }

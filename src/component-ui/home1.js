@@ -2,24 +2,12 @@ import React from 'react';
 import './home1.css';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
-import data from "./Data/dataHome.json"
+import data from "./Data/dataHome"
 import Navbar from './navbar';
 import Login from './login';
 import { useContext } from "react";
 import { userContext } from "./userContext";
 const Home1 = () => {
-//  *********to save user******
-// const [user,setuser]=useContext(userContext)
-// useEffect(() => {
-//   const data=window.localStorage.getItem('user')
-//   setuser(JSON.parse(data))
-//    }, [])
-   
-//  useEffect(() => {
-//    window.localStorage.setItem('user',JSON.stringify(user))
-//  }, [user])
-
-
 
   const newData = data.map((data) => {
     return (
@@ -41,15 +29,7 @@ const Home1 = () => {
         <img src="/images/5.gif" className='home-img-create'/>
         {/* <div className='home-create-btn-img'> */}
        
-{/* <div className='inside-home'>
-<img src="/images/3.gif"  className='home-img-create'/>
-<Link to='/create' className='create_link'>   Create </Link>
-       
-       
-</div>
 
-        </div>
-       */}
 <Link to='/create' className='create_link'>   Create </Link>
        
       </div>

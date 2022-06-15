@@ -28,8 +28,19 @@ const NavBar = (props) => {
 
 useEffect(() => {
   window.localStorage.setItem("islogin",isloged)
+ 
 }, [isloged])
 // *************end********
+const logout=()=>{
+  setisloged(false)
+   window.localStorage.setItem("user",JSON.stringify({
+    Fname:"",
+    Lname:"",
+    email:"",
+    password:"",
+    Cpassword:""
+  }))
+}
   return (
     <>
       <nav className="navbar-main">
@@ -67,7 +78,7 @@ useEffect(() => {
                   </Link>
                 </li>
                 <li >
-                  <a class="dropdown-item" href="/" onClick={()=>setisloged(false)} >
+                  <a class="dropdown-item" href="/" onClick={()=>logout()} >
                     Log out
                   </a>
                 </li>

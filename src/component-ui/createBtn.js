@@ -10,7 +10,7 @@ const CreateBtn = () => {
 
     return (
         <>
-        <Navbar/>
+        {/* <Navbar/> */}
         <h4 className='heading-selection'><u>Select Your Own Way</u></h4>
             <div className='grid-main'>
                 <div className='first-grid'>

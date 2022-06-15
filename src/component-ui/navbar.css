@@ -34,7 +34,7 @@
     justify-content: flex-end;
     align-items: flex-end;
     font-weight: bold;
-    margin-top: -135px;
+    margin-top: -45px;
     padding-right: 30px;
  /* border: 1px solid red; */
  /* margin-bottom: 30px; */
@@ -81,10 +81,10 @@ color: purple;
     /* margin-left: 40px; */
 }
 .logo-image{
-    margin-left: -30px;
-margin-top: -40px;
-height: 200px;
-width: 200px;
+    margin-left: 40px;
+margin-top: 0px;
+height: 70px;
+width: 90px;
 }
 .home-signup{
     text-decoration: none;
@@ -103,10 +103,7 @@ width: 200px;
 }
 .Home-after-login{
     margin-right: 50px;
-    /* margin-top: 40px; */
-    /* position: relative;
-    top: 15px;
-    right:10px; */
+
     text-transform: capitalize;
     text-decoration: underline;
     cursor: pointer;

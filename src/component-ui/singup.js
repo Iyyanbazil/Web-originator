@@ -106,24 +106,14 @@ const Signup = () => {
               name="Cpassword"
               onChange={handleChange}
             />
-            {showpass && <p>*password not matched</p>}
+            {showpass && (<p className="pass-not-match">*Password not matched</p>)}
           </div>
           <div className="dob_div">
             <h6>Date Of Birth*</h6>
 
             <input type="date" />
           </div>
-          {/* <h6 className='gender_heading'>Gender*</h6>
-                    <div className='gender_div'>
-
-                        <input type="radio" name="label" value="radio" />
-                        <label for="radio" >Male</label>
-                        <input type="radio" name="label" value="radio" />
-                        <label for="radio">Female</label>
-                        <input type="radio" name="label" value="radio" />
-                        <label for="radio">Others</label>
-
-                    </div> */}
+         
           <p className="policies">
             By clicking signup you agree to our terms data policy and cookies
             policy you may recieve SMS notification from us and can opt out
@@ -132,9 +122,9 @@ const Signup = () => {
             {" "}
             submit
           </button>
-          {/* <Link to="/Login" className='submit-sign' type="submit" onClick={submitForm}>Submit</Link> */}
+  
 
-          <h6 className="Already">Already have a account?</h6>
+          <Link to="/login" className="Already">Already have a account?</Link>
         </div>
       </div>
     </>

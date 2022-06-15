@@ -4,9 +4,9 @@
     height: 100vh;
     background-size:cover;
     background-repeat: no-repeat;
-    margin-top: -5px;
-    padding-top: 20px;
-   
+    margin-top: 20px;
+    padding-top: 1px;
+   z-index: 1;
 }
 
 .login{
@@ -21,7 +21,7 @@
 /* border: 1px solid red; */
 margin-left: 500px;
 margin-top: 50px;
-border-radius: 20px;
+border-radius: 50px;
 opacity: 0.7;
 }
 
@@ -34,46 +34,42 @@ opacity: 0.7;
 }
 
 .input1{
-    /* position:relative;
-    left: 48px;
-    top:35px; */
+    
     padding-left: 10px;;
     height: 50px;
     width: 300px;
-    border-radius: 5px;
-    margin-top: 50px;
+    border-radius: 25px;
+    margin-top: 5px;
     margin-left: 45px;
 }
 
 .input2{
-    
-    /* position:relative;
-    right: 103px;
-    left:48px;
-    top:70px; */
-    margin-top: 20px;
+  
+    margin-top: 10px;
     margin-left: 45px;
     padding-left: 10px;
     height: 50px;
     width: 300px;
-    border-radius: 5px;
+    border-radius: 25px;
 }
 .loginBtn{
-    /* position: relative;
-    width: 240px;
-    top: 50px;
-  left: 170px; */
-  margin-top: 90px;
+ /* margin-bottom: 300px; */
+  /* margin-top: -250px; */
     height: 50px;
 opacity: 1;
     text-decoration: none;
-    padding: 5px 10px 5px 10px;
+    padding: 1px 90px 1px 90px;
     border:2px solid black;
+    color: white;
+    background-color: black;
     border-radius: 5px;
-    font-size: large;
-    font-weight: bold;
+    font-size: 25px;
+    font-weight: bolder;
     /* margin-bottom: 20px; */
-   
+   margin-left: 70px;
+   border-radius: 15px;
+   margin-top: -50px;
+
 }
 .loginBtn:hover{
     cursor:pointer;
@@ -83,19 +79,21 @@ opacity: 1;
     font-weight: bolder;
     box-shadow:10px 10px 10px darkgrey;
 }
-.links_login{
+/* .links_login{
     /* border: 1px solid red; */
-    margin-top: 50px;
-    margin-left: 160px;
+    /* margin-top: 50px;
+    margin-left: 160px; */
     /* height: 50px; */
  
     
-}
+ */
 .new_account{
+    display: flex;
+    justify-content: center;
     text-decoration: none;
     color: black;
-    margin-left:130px ;
-   
+  border: 1px solid red;
+
 }
 .new_account:hover{
     cursor:pointer;
@@ -104,13 +102,11 @@ opacity: 1;
     font-weight: bolder;
     
 }
-.google_image{
-    margin-left: 130px;
-margin-top: 20px;
-}
 
-.fb_image{
-    margin-left: 50px;
-margin-top: 20px;
+.email-pass{
+    display: flex;
+    justify-content:start;
+    margin-left: 20px;
+    margin-top: 20px;
 }
 

@@ -76,6 +76,7 @@ const Login = () => {
           {/* <h1>{user.Fname}</h1> */}
           <hr />
           {/* <label className='label1'>Email</label> */}
+          <h4 className="email-pass">Email</h4>
           <input
             className="input1"
             type="email"
@@ -85,6 +86,7 @@ const Login = () => {
             onChange={handleChange}
           />
           {/* <label className='label2'>Password</label> */}
+          <h4 className="email-pass">Password</h4>
           <input
             className="input2"
             type="password"
@@ -93,7 +95,7 @@ const Login = () => {
             value={login.password}
             onChange={handleChange}
           />
-          <p>***{message}</p>
+          <p className="email-pass"> ***{message}</p>
 
           <div className="links_login">
             {/* {message ==="Password not match" && message ==="No such user exist" && (
@@ -108,11 +110,10 @@ const Login = () => {
           </div>
           <br />
           <div>
-            <Link to="/login/signup" className="new_account">
+            <Link className="new_account"  to="/Signup" >
               New?Create Account
             </Link>
-            {/* <a href="https://accounts.google.com/ServiceLogin/identifier?service=mail&passive=1209600&osid=1&continue=https%3A%2F%2Fmail.google.com%2Fmail%2Fu%2F0%2F&followup=https%3A%2F%2Fmail.google.com%2Fmail%2Fu%2F0%2F&emr=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin"><img src="google-icon.png" className='google_image'></img></a>
-        <a href="https://www.facebook.com/"><img src="facebook-icon.png" className='fb_image'></img></a> */}
+         
           </div>
         </div>
       </div>
