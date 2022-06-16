@@ -46,6 +46,7 @@ export const createPage = (name,user) => async (dispatch) => {
     dispatch({ type: TYPES.CREATE_PAGE_ERROR, data: error });
   }
 };
+
 // export const deletePage = (id) => async (dispatch) => {
 //   dispatch({ type: TYPES.DELETE_REQUEST_SEND });
 //   try {

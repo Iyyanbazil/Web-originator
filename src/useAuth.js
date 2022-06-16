@@ -1,17 +1,12 @@
-import React from 'react'
-import { useState,useEffect } from 'react'
+import React from "react";
+import { useState, useEffect } from "react";
 const useAuth = (initialValue) => {
-    const [isAuth, setisAuth] = useState(initialValue)
-//   const login= ()=>{
-//         useEffect(() => {
-//             const data=window.localStorage.getItem("islogin")
-//             setisAuth(data)
-//            }, [])
-//     }
-   
-    
-  return [isAuth]
-   
-}
+  const [isAuth, setisAuth] = useState(initialValue);
+  const loginn = () => {
+    setisAuth(true);
+  };
 
-export default useAuth
+  return [isAuth,setisAuth,loginn];
+};
+
+export default useAuth;

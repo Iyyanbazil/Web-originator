@@ -6,16 +6,19 @@ import { createUser } from "../redux/actions/pageAction";
 import axios from "axios";
 import { useContext } from "react";
 import { userContext } from "./userContext";
+import { loginContext } from "./loginContext";
 import { contains } from "jquery";
+import useAuth from "../useAuth";
 const Login = () => {
   const [user, setuser] = useContext(userContext);
-
+   const [logger,setlogger]=useContext(loginContext)
   const [login, setlogin] = useState({
     email: "",
     password: "",
   });
   const [message, setmessage] = useState("");
   const [islogin, setislogin] = useState(false)
+  const [isAuth,loginn,setisAuth]=useAuth(false)
   useEffect(() => {
     if(login.email !="" && login.password != ""){
         if(message === "login"){
@@ -59,6 +62,7 @@ const Login = () => {
       setislogin(true)
       if (loged === "login") {
         window.localStorage.setItem("islogin",true);
+        setlogger(true)
         // window.localStorage.setItem("user",JSON.stringify(user));
       
         window.location.href = "http://localhost:3000/";

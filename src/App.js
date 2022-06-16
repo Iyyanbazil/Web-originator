@@ -13,20 +13,14 @@ import NavBar from "./component-ui/navbar";
 import DashBoard from './component-ui/DashBoard'
 import UserData from "./dashComponents/userData";
 import ProtectedRoute from "./ProtectedRoute";
-import useAuth from "./useAuth";
-
+import TemplatePage from './component-ui/templatePage'
 import {UserProvider} from './component-ui/userContext'
+import { FALSE } from "sass";
 function App() {
 
-  const [isAuth] = useAuth(false)
- 
+
   
   const dispatch = useDispatch();
-  // useEffect(() => {
-  //   const gotthat=window.localStorage.getItem('islogin')
-  //   setAuth(JSON.parse( gotthat))
-  //   console.log(Auth);
-  //  }, [])
 
   useEffect(() => {
     pageLoad()(dispatch);
@@ -50,10 +44,11 @@ function App() {
         < Route exact path="/Signup" component={Signup}></Route> 
 
         {/* ******** Protected React *********** */}
-        {/* <ProtectedRoute path="/createPage" component={Home} auth={isAuth} /> */}
+        {/* <ProtectedRoute path="/createPage" component={Home} auth={false} /> */}
         < Route exact path="/dashboard" component={DashBoard}></Route> 
         <Route exact path="/dashboard/profile" component={UserData}></Route> 
         <Route exact path="/createPage" component={Home}></Route> 
+        <Route exact path="/create/byTemplate" component={TemplatePage}></Route> 
         </UserProvider>
         </>
       

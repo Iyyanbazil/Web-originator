@@ -2,11 +2,16 @@ import React from 'react'
 import "./createBtn.css"
 import {Link} from 'react-router-dom'
 import Navbar from './navbar'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 // import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import TemplatePage from './templatePage';
 const CreateBtn = () => {
-    const [islogin, setislogin] = useState(true)
+    const [islogin, setislogin] = useState(false)
+useEffect(() => {
+const userlog=window.localStorage.getItem('islogin')
+const parselog=JSON.parse(userlog)
+setislogin(parselog)
+}, [])
 
     return (
         <>
@@ -16,8 +21,14 @@ const CreateBtn = () => {
                 <div className='first-grid'>
                     <h2><b>Create by <br/>Templates</b></h2>
                     <p className='para-after-head'>Select the templete of your choice and make changes according to your need its all Free!</p>
-                   
-                    <Link to="/create/byTemplate"  className="create_link2">Create</Link><br/><br/>
+                    {islogin && (
+                       <Link to="/create/byTemplate"  className="create_link2">Create</Link>
+                    )}
+                    {!islogin && (
+                             <Link to="/login"  className="create_link2">Create</Link>
+                    )}
+                    {/* <Link to="/create/byTemplate"  className="create_link2">Create</Link> */}
+                    <br/><br/>
                     <Link className='link-learn'>Learn More?</Link>
                 </div>
                 <div className='second-grid'>

@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from "react";
 import {RiEditLine} from 'react-icons/ri'
 import {BsTrash} from 'react-icons/bs'
-import { Link } from "react-router-dom";
+import { Link,Redirect,Route } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { createPage } from "./redux/actions/pageAction";
 import axios from "axios";
@@ -46,6 +46,7 @@ const Home = ({page}) => {
       window.location.reload()
      })
   }
+ 
 
   return (
     <div className="container">
