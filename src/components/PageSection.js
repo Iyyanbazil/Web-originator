@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useReducer,useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Modal, Button } from "react-bootstrap";
 import { createPage } from "../redux/actions/pageAction";
@@ -9,15 +9,18 @@ export default function PageSection({ pages }) {
   const [name, setName] = useState("");
   const [isValid, setIsValid] = useState(true);
   const [error, setError] = useState("");
-
+  const [CurrentUser, setCurrentUser] = useState("")
   const dispatch = useDispatch();
-
+  useEffect(() => {
+    const userData= window.localStorage.getItem('user')
+    setCurrentUser(JSON.parse(userData))
+    }, [])
   const handleSubmit = async () => {
     if (!name) {
       setIsValid(false);
       return;
     } else {
-      createPage(name)(dispatch);
+      createPage(name,CurrentUser._id)(dispatch);
       closeModal();
     }
     console.log(name)
@@ -84,7 +87,7 @@ export default function PageSection({ pages }) {
         </Modal>
       </form>
       <ul className="list-group pages">
-        {pages.map((page) => (
+        {pages.filter(curElem=>curElem.user === CurrentUser._id).map((page) => (
           <PageDetail page={page} key={page._id} />
         ))}
       </ul>

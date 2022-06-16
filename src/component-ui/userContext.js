@@ -10,9 +10,10 @@ const [user, setuser] = useState({
     password:"",
     Cpassword:"",
 })
+const [userlogin,setuserlogin]=useState(null)
     return(
     
-        <userContext.Provider value={[user,setuser]}>
+        <userContext.Provider value={[user,setuser,]}>
           {props.children}
         </userContext.Provider>
         

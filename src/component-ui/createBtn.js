@@ -25,7 +25,7 @@ const CreateBtn = () => {
                     <h2><b>Create by <br/>Drag & Drop</b></h2>
                     <p className="para-after-head">Design from blank use editor and many built in components.Style them and many more for Free!</p>
                     {islogin && (
-                    <Link to="/createPage" target="_blank" className="create_link2">Create</Link>
+                    <Link to="/createPage" className="create_link2">Create</Link>
                     )}
                     {!islogin && (
                             <Link to="/login" className="create_link2">Create</Link>

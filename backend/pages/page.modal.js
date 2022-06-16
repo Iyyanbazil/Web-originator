@@ -9,6 +9,10 @@ const Page= new Schema(
         trim:true,
         maxlength:25
     },
+    user:{
+        type:String,
+        required:false,
+    },
     slug:{
         type:String,
         required:false,

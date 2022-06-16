@@ -3,6 +3,7 @@ import Pages from './page.modal';
 export const createPage= async (pageBody)=>{
 const slug =pageBody.name.toLowerCase().split(" ").join("-");
 pageBody.slug=slug;
+
 const page =new Pages(pageBody);
 const pageResponse=await page.save();
     // window.location.href="http://localhost:3000/"

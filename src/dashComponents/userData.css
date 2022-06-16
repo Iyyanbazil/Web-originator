@@ -1,0 +1,80 @@
+.main-comp{
+    /* background-color: #494949; */
+    height: 100%;
+    border-radius: 30px;
+}
+.profile-gird{
+    margin-top: 50px;
+    /* margin-left: -10px; */
+    display: grid;
+    grid-template-columns: 450px 450px;
+    column-gap: 40px;
+}
+.profile-grid-first{
+    /* border:1px solid red; */
+    /* margin-left: 20px */
+}
+.profile-grid-second{
+    /* border:1px solid red */
+    
+}
+.name-span{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.profile-name{
+    /* background-color: black; */
+    /* color: white; */
+    padding:0px 10px 0px 10px;
+    text-decoration: underline;
+}
+.name-span > p{
+    margin-top: 4px;
+    margin-left: 10px;
+    font-size: 20px;
+    text-transform: capitalize;
+    /* color: white; */
+}
+.email-div{
+    display: flex;
+    flex-wrap: wrap;
+    /* border: 1px solid red; */
+    /* color: white; */
+    /* margin-left: 120px; */
+}
+.email, .profile-pass{
+    /* margin-left: 20px; */
+    margin-top: 20px;
+    /* background-color: black; */
+    /* color: white; */
+    padding:0px 10px 0px 10px;
+    text-decoration: underline;
+}
+.email-span,.profile-span{
+    margin-top: 30px;
+    margin-left: 90px;
+    /* color: white; */
+}
+.profile-pass-div{
+    display: flex;
+    flex-wrap: wrap;
+    /* border: 1px solid red; */
+    /* margin-left: 120px; */
+}
+/* .profile-pass{
+    margin-left: 20px;
+    margin-top: 20px;
+} */
+.profile-main-head,.profile-welcome{
+    /* color: white; */
+    display: grid;
+    justify-content: start;
+    text-decoration: underline;
+}
+.profile-welcome{
+  margin-left: 300px;
+  margin-top: 50px;
+  font-size: 25px;
+  text-transform: uppercase;
+}

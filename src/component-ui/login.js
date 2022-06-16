@@ -9,6 +9,7 @@ import { userContext } from "./userContext";
 import { contains } from "jquery";
 const Login = () => {
   const [user, setuser] = useContext(userContext);
+
   const [login, setlogin] = useState({
     email: "",
     password: "",
@@ -59,6 +60,7 @@ const Login = () => {
       if (loged === "login") {
         window.localStorage.setItem("islogin",true);
         // window.localStorage.setItem("user",JSON.stringify(user));
+      
         window.location.href = "http://localhost:3000/";
      
       }

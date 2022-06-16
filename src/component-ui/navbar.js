@@ -73,7 +73,7 @@ const logout=()=>{
                 aria-labelledby="dropdownMenuButton1"
               >
                 <li>
-                  <Link class="dropdown-item" to="#">
+                  <Link class="dropdown-item" to="/dashboard">
                     Profile
                   </Link>
                 </li>
