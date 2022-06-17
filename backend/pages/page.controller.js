@@ -3,7 +3,7 @@ import { createPage, deletePage, listPages, pagedetails, savePageContent, update
 export const create = async (req,res)=>{
 const pageBody=req.body;
 const page=await createPage(pageBody);
-res.json(page);
+res.json(page)
 
 } 
 export const list = async (req,res)=>{

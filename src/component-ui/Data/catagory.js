@@ -1,6 +1,6 @@
 const Catagory=[
     {
-        name:"E-Commerce",
+        name:"NEws",
         id:1,
         img:'./images/1.jpg',
         link:"#",
@@ -12,13 +12,13 @@ const Catagory=[
         link:"#",
     },
     {
-        name:"E-Commerce",
+        name:"News",
         id:1,
         img:'./images/3.jpg',
         link:"#",
     },
     {
-        name:"E-Commerce",
+        name:"News",
         id:1,
         img:'./images/4.jpg',
         link:"#",
