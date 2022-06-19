@@ -14,6 +14,7 @@ import DashBoard from './component-ui/DashBoard'
 import UserData from "./dashComponents/userData";
 import ProtectedRoute from "./ProtectedRoute";
 import TemplatePage from './component-ui/templatePage'
+import TemplateComponent from "./component-ui/templateComponent";
 import {UserProvider} from './component-ui/userContext'
 import { FALSE } from "sass";
 function App() {

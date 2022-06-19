@@ -27,7 +27,7 @@ margin-top: -50px;
 padding-left: 20px;
     /* border: 1px solid red; */
     width: 180px;
-    height: 500px;
+    height: 1000px;
     background-color: #494949;
     color: white;
     padding-top: 100px;
@@ -67,7 +67,7 @@ padding-left: 20px;
     display: grid;
     grid-template-columns:  200px 200px 200px 200px;
     margin-left: 250px;
-    margin-top: -420px;
+    margin-top: -920px;
     row-gap: 20px;
 }
 .grid-data{

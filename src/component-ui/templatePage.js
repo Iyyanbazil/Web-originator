@@ -1,6 +1,7 @@
 import React, {
   useState,
   useRef,
+  setInterval,
   useEffect,
   setTimeout,
   useReducer,
@@ -16,8 +17,18 @@ import { useSelector, useDispatch } from "react-redux";
 import { createPage } from "../redux/actions/pageAction";
 import axios from "axios";
 import { API_HOST } from "../api_utils";
+import ClipLoader from "react-spinners/ClipLoader";
 // import "./pages.css"
+
+
+
 const TemplatePage = ({ page }) => {
+  // useEffect(() => {
+  //   console.log('i am from useeffect');
+  //  }, [])
+  //  setTimeout(() => {
+  //   console.log("i sm from settimeout")
+  // }, 3000)
   // ****** to displaypages ****
   const [name, setName] = useState("");
   const [error, setError] = useState("");
@@ -25,7 +36,21 @@ const TemplatePage = ({ page }) => {
   const [isValid, setIsValid] = useState(true);
   const [CurrentUser, setCurrentUser] = useState("");
   const [select, setselect] = useState("");
-  // const [content, setcontent] = useState({});
+  const [content, setcontent] = useState({});
+  const [loading, setloading] = useState(false);
+
+useEffect(() => {
+
+  if(show === true){
+    console.log("i am from use effect");
+    //   setTimeout(() => {
+    //   console.log("i sm from settimeout");
+    // }, 3000)
+  }
+  
+}, [show])
+
+ 
   if (select === "") {
     var newFun = Catagory;
   } else {
@@ -62,7 +87,7 @@ const TemplatePage = ({ page }) => {
     console.log(content);
     await createPage(name, CurrentUser._id, content)(dispatch);
     console.log(name);
-  
+
     // window.location.href="/"
   };
   const handleClear = () => {
@@ -82,6 +107,7 @@ const TemplatePage = ({ page }) => {
   return (
     <>
       {/* <Navbar /> */}
+      {/* {loading ? ():()} */}
       <form id="create-page">
         <Modal
           show={show}
@@ -104,13 +130,10 @@ const TemplatePage = ({ page }) => {
               <label htmlFor="name" className="form-label">
                 {name}
               </label>
-              
             </div>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary">
-              Close
-            </Button>
+            <Button variant="secondary">Close</Button>
             <Button variant="primary" onClick={handleSubmit}>
               Save Changes
             </Button>
@@ -132,8 +155,9 @@ const TemplatePage = ({ page }) => {
         <ul className="choice-list">
           <li onClick={() => setselect("news")}>News</li>
           <li onClick={() => setselect("blogs")}>Blogs</li>
-          <li onClick={() => setselect("social")}>Social</li>
-          <li onClick={() => setselect("education")}>Education</li>
+          <li onClick={() => setselect("portfolio")}>Portfolio</li>
+          <li onClick={() => setselect("resturant")}>Resturant</li>
+          <li onClick={() => setselect("tour")}>Tour</li>
         </ul>
       </div>
 
@@ -169,43 +193,6 @@ const TemplatePage = ({ page }) => {
           <div>second</div>
           <div>third</div> */}
       </div>
-      {/* 
-      <table className="table table-bordered table-hover">
-            <thead>
-              <tr>
-                <td> Page ID</td>
-                <td> Page Name</td>
-                <td>Used as</td>
-                <td>Action (edit &delete)</td>
-              </tr>
-            </thead>
-            <tbody>
-              
-              {pages && CurrentUser._id
-                ? pages.filter(CurElem=>CurElem.user === CurrentUser._id).map((page) => (
-                    <tr key={page._id}>
-                      <td>{page._id}</td>
-                      <td>{page.name}</td>
-                      <td>{page.slug}</td>
-                      <td>
-                        <Link to={`/editor/${page._id}`} className="edit-home btn btn-sm btn-outline-primary "  >
-                         <RiEditLine/>
-                        </Link>
-                        <button
-                          className="btn btn-sm btn-outline-danger"
-                          // onClick={()=>{setNumber(page._id);deletePage()}}
-                          onClick={()=>deletePage(page._id)}
-                        >
-                          <BsTrash/>
-                          
-                        </button>
-                        
-                      </td>
-                    </tr>
-                  ))
-                : "No Page"}
-            </tbody>
-          </table> */}
     </>
   );
 };

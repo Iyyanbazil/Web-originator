@@ -164,7 +164,7 @@ export const styleManager = {
         "border-radius",
         "border",
         "box-shadow",
-        "background-bg",
+        "background-color",
       ],
       properties: [
         {
@@ -187,19 +187,20 @@ export const styleManager = {
         },
         {
           property: "box-shadow",
-          properties: [
-            { name: "X position", property: "box-shadow-h" },
-            { name: "Y position", property: "box-shadow-v" },
-            { name: "Blur", property: "box-shadow-blur" },
-            { name: "Spread", property: "box-shadow-spread" },
-            { name: "Color", property: "box-shadow-color" },
-            { name: "Shadow type", property: "box-shadow-type" },
-          ],
+          property:"box-shadow",
+          // properties: [
+          //   { name: "X position", property: "box-shadow-h" },
+          //   { name: "Y position", property: "box-shadow-v" },
+          //   { name: "Blur", property: "box-shadow-blur" },
+          //   { name: "Spread", property: "box-shadow-spread" },
+          //   { name: "Color", property: "box-shadow-color" },
+          //   { name: "Shadow type", property: "box-shadow-type" },
+          // ],
         },
         {
-          id: "background-bg",
-          property: "background",
-          type: "bg",
+          id: "background-color",
+          property: "background-color",
+          type: "color",
         },
       ],
     },
@@ -519,7 +520,7 @@ export const deviceManager = {
   devices: [
     {
       name: "Desktop",
-      width: "",
+      width: "1100px",
     },
     {
       name: "Mobile",
@@ -544,6 +545,7 @@ export const addEditorCommand = (editor) => {
       sender && sender.set("active");
       editor.store();
       editor.getHtml()
+      alert("Save changes")
     },
   });
 
@@ -593,11 +595,55 @@ export const scripts = [
   "https://unpkg.com/swiper@7/swiper-bundle.min.js",
   "https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js",
   "https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js",
+ // ******* theme page cdn *******
+  "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js",
+  "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js",
+
+  // 6
+  
+
+  
+  
 ];
 export const styles = [
   "https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css",
   "https://unpkg.com/swiper@7/swiper-bundle.min.css",
   "https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css",
+
+  // ******* theme page cdn *******
+ " https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css",
+// 2
+"https://www.w3schools.com/w3css/4/w3.css",
+"https://fonts.googleapis.com/css?family=Lato",
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
+// 3
+"https://www.w3schools.com/w3css/4/w3.css",
+// 4
+"https://www.w3schools.com/w3css/4/w3.css",
+"https://fonts.googleapis.com/css?family=Raleway",
+// 5
+"https://www.w3schools.com/w3css/4/w3.css",
+"https://fonts.googleapis.com/css?family=Karma",
+// 6
+"https://www.w3schools.com/w3css/4/w3.css",
+"https://fonts.googleapis.com/css?family=Oswald",
+"https://fonts.googleapis.com/css?family=Open Sans",
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
+// 9
+"https://www.w3schools.com/w3css/4/w3.css",
+"https://fonts.googleapis.com/css?family=Amatic+SC",
+// 10
+"https://www.w3schools.com/w3css/4/w3.css",
+// 11
+"https://www.w3schools.com/w3css/4/w3.css",
+"https://fonts.googleapis.com/css?family=Raleway",
+// 12
+"https://www.w3schools.com/w3css/4/w3.css",
+// 13
+"https://www.w3schools.com/w3css/4/w3.css",
+'https://fonts.googleapis.com/css?family=Roboto',
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
+
 ];
 
 export const toggleSidebar = (fromEditor) => {
