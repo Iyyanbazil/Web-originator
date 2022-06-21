@@ -18,7 +18,7 @@ const Page= new Schema(
         required:false,
 
     },
-
+    img:String,
     content:Object,
 
 },

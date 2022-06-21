@@ -611,38 +611,38 @@ export const styles = [
   "https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css",
 
   // ******* theme page cdn *******
- " https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css",
-// 2
-"https://www.w3schools.com/w3css/4/w3.css",
-"https://fonts.googleapis.com/css?family=Lato",
-"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
-// 3
-"https://www.w3schools.com/w3css/4/w3.css",
-// 4
-"https://www.w3schools.com/w3css/4/w3.css",
-"https://fonts.googleapis.com/css?family=Raleway",
-// 5
-"https://www.w3schools.com/w3css/4/w3.css",
-"https://fonts.googleapis.com/css?family=Karma",
-// 6
-"https://www.w3schools.com/w3css/4/w3.css",
-"https://fonts.googleapis.com/css?family=Oswald",
-"https://fonts.googleapis.com/css?family=Open Sans",
-"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
-// 9
-"https://www.w3schools.com/w3css/4/w3.css",
-"https://fonts.googleapis.com/css?family=Amatic+SC",
-// 10
-"https://www.w3schools.com/w3css/4/w3.css",
-// 11
-"https://www.w3schools.com/w3css/4/w3.css",
-"https://fonts.googleapis.com/css?family=Raleway",
-// 12
-"https://www.w3schools.com/w3css/4/w3.css",
-// 13
-"https://www.w3schools.com/w3css/4/w3.css",
-'https://fonts.googleapis.com/css?family=Roboto',
-"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
+//  " https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css",
+// // 2
+// "https://www.w3schools.com/w3css/4/w3.css",
+// "https://fonts.googleapis.com/css?family=Lato",
+// "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
+// // 3
+// "https://www.w3schools.com/w3css/4/w3.css",
+// // 4
+// "https://www.w3schools.com/w3css/4/w3.css",
+// "https://fonts.googleapis.com/css?family=Raleway",
+// // 5
+// "https://www.w3schools.com/w3css/4/w3.css",
+// "https://fonts.googleapis.com/css?family=Karma",
+// // 6
+// "https://www.w3schools.com/w3css/4/w3.css",
+// "https://fonts.googleapis.com/css?family=Oswald",
+// "https://fonts.googleapis.com/css?family=Open Sans",
+// "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
+// // 9
+// "https://www.w3schools.com/w3css/4/w3.css",
+// "https://fonts.googleapis.com/css?family=Amatic+SC",
+// // 10
+// "https://www.w3schools.com/w3css/4/w3.css",
+// // 11
+// "https://www.w3schools.com/w3css/4/w3.css",
+// "https://fonts.googleapis.com/css?family=Raleway",
+// // 12
+// "https://www.w3schools.com/w3css/4/w3.css",
+// // 13
+// "https://www.w3schools.com/w3css/4/w3.css",
+// 'https://fonts.googleapis.com/css?family=Roboto',
+// "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
 
 ];
 

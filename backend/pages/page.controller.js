@@ -1,4 +1,4 @@
-import { createPage, deletePage, listPages, pagedetails, savePageContent, updatePage,homeDel } from "./page.service";
+import { createPage, deletePage, listPages, pagedetails, savePageContent, updatePage,homeDel,template,nameUpdate } from "./page.service";
 
 export const create = async (req,res)=>{
 const pageBody=req.body;
@@ -46,6 +46,18 @@ const {id}=req.body
 const data=await homeDel(id);
 res.json(data)
 }
+ export const templatePage=async(req,res)=>{
+    const data=await template()
+    res.json(data)
+ }
+ export const updateName=async(req,res)=>{
+   const {id,name}=req.body.data
+   // console.log({id});
+   // console.log({name});
+   // console.log(req.body.data);
+   const data=await nameUpdate(id,name)
+   res.json(data)
+ }
 
 // export const postData = (req, res) => {
 //     const { Fname, Lname, email, password, Cpassword } = req.body;
