@@ -1,5 +1,5 @@
 import { toggleSidebar } from "../api_utils/geditor_utils";
-import Editor from "../Editor";
+// import Editor from "../Editor";
 
 function TopNav() {
   const handleClick = () => {
@@ -7,7 +7,7 @@ function TopNav() {
 
   };
   return (
-    <nav className="navbar navbar-light">
+    <nav className="navbar navbar-light fixed-bar">
       <div className="container">
         <button
           className="btn btn-sm btn-outline-primary"

@@ -45,8 +45,8 @@ const Editor = () => {
       >
         <nav className="navbar navbar-light">
           <div className="container-fluid">
-            <span className="navbar-brand mb-0  logo "><Link className="wog" to="/">WOG</Link><p className="abbrevation">Web Originator</p></span>
-          
+            {/* <span className="navbar-brand mb-0  logo "><Link className="wog" to="/">WOG</Link><p className="abbrevation">Web Originator</p></span> */}
+          <a className="home-link" href="/"><img src="/favicon.png" height="70px" width="100px" ></img></a>
           </div>
         </nav>
         <PageSection pages={pages} />

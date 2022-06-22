@@ -40,7 +40,7 @@ const TemplatePage = ({ page }) => {
 
         // window.location.href = "/dashboard";
       }, 5000);
-  
+  setshowBtn(false)
   }, [show]);
 
   if (select === "") {
@@ -187,11 +187,11 @@ axios.get(`${API_HOST}pages/create/byTemplate`).then((res)=>{
 
         {/* </div> */}
         <ul className="choice-list">
-          <li onClick={() => setselect("news")} className={select ==="news"? "active-choice":"not-active-choice" }>News</li>
+          {/* <li onClick={() => setselect("Education")} className={select ==="news"? "active-choice":"not-active-choice" }>Education</li> */}
           <li onClick={() => setselect("blogs")} className={select ==="blogs"? "active-choice":"not-active-choice" }>Blogs</li>
           <li onClick={() => setselect("portfolio")} className={select ==="portfolio"? "active-choice":"not-active-choice" }>Portfolio</li>
           <li onClick={() => setselect("resturant")} className={select ==="resturant"? "active-choice":"not-active-choice" }>Resturant</li>
-          <li onClick={() => setselect("tour")} className={select ==="tour"? "active-choice":"not-active-choice" }>Tour</li>
+          <li onClick={() => setselect("travel")} className={select ==="tour"? "active-choice":"not-active-choice" }>Travel</li>
         </ul>
       </div>
 

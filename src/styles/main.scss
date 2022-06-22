@@ -13,24 +13,32 @@
   word-wrap: break-word;
   text-transform:capitalize;
 }
-.wog{
-  text-decoration: none;
-  display: flex;
-  justify-content: center;
-  // margin-left: 30px;
-  background-color: black;
-  color: white;
-  font-size: 35px;
-  margin-top: -13px;
-  padding: 0px 80px 0px 40px;
-  margin-left: -10px;
+
+// ******** to change the color of active page on editor **********
+.active-page-now{
+  color:red
 }
-.abbrevation{
-  margin-left: -10px;
-  padding-left: 5px;
-  font-size: 18px;
-  border: 2px solid black;
+.not-active-now{
+  color: black;
 }
+
+// ******
+
+// ******** edit btn on editor after page **********
+.btn-page-create{
+  margin-left: -40px;
+}
+// *****name of page on editor ********
+.name-page-set{
+  margin-left: -5px;
+  width: 18px;
+}
+// ********* icon and link to home on editor *******
+.home-link{
+  margin-top: -10px;
+  margin-left: 15px;
+}
+
 
 body {
   margin: 0;
@@ -80,10 +88,15 @@ html {
   left: 15%;
 }
 .main-content {
+ 
   .navbar {
     padding: 0;
+  
+  
     .container-fluid {
       padding: 0;
+    
+    
     }
   }
 
@@ -93,8 +106,29 @@ html {
 }
 
 .nav {
-  justify-content: space-between;
+  // justify-content: space-between;
+  margin-left: -10px;
+  
+
 }
+.fixed-bar{
+  
+  height: 45px;
+  z-index: 70;
+  position: fixed;
+  top: 0;
+}
+// ******to modify blocks ***
+// .nav-link{
+ 
+ 
+// }
+// .nav-link:active{
+//   color: red;
+// }
+// .active{
+//   color: red;
+// }
 .gjs-pn-panel {
   position: relative;
 }
@@ -102,7 +136,11 @@ html {
 .gjs-cv-canvas {
   width: 100%;
   height: 100%;
-  top: 0;
+  top: 38;
+  // margin-top: 50px;
+  // z-index: 1;
+// display: none;
+// z-index: 1;
 }
 
 .tab-content {
@@ -125,26 +163,41 @@ html {
 }
 
 /* Theming */
+
+// ******* backgronds of blocks and editor controls ***********
 .gjs-one-bg {
   background-color: #fcf6f5ff;
+  
 }
-
+// ********** to change color of editor icons & and heading of blocks dropdown *****
 .gjs-two-color {
   color: #990011ff;
+ 
 }
 
 .gjs-three-bg {
   background-color: #990011ff;
   color: #fcf6f5ff;
+  // color: black;
 }
-
+// ********* to change color of top most right icon *********
 .gjs-four-color,
 .gjs-four-color-h:hover {
-  color: #990011ff;
+  // color: #990011ff;
+  color: purple;
 }
 
+
+// ******** to change color of blocks ********
+// .gjs-four-color-h{
+// color:yellow
+// }
+
+
+// ************border of editor controls ************
 .gjs-pn-btn {
   border: 1px solid #990011ff;
+  // border: 1px solid yellow;
 }
 
 // Customize Bootstrap CSS
@@ -155,10 +208,19 @@ html {
 .form-control {
   border-radius: 0 !important;
 }
-
+.panel__devices{
+  margin-left: 80px;
+}
+.panel__editor{
+  margin-left: 180px;
+}
+.panel__basic-actions{
+  margin-left: 180px;
+}
 .btn {
   .fa {
     color: #990011ff;
+    // margin-left: 50px;
   }
   &:hover {
     .fa {
@@ -217,11 +279,11 @@ html {
 // }
 
 
-// .gjs-block-label {
-//   .fa {
-//     font-size: 25px;
-//   }
-// }
+.gjs-block-label {
+  .fa {
+    font-size: 25px;
+  }
+}
 .grp-wrapper {
   background-image: url("data:image/png:base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAIAAADZF8uwAAAAGUlEQVQYV2M4gwH+YwCGIasIUwhT25BVBADtzYNYrHvv4gAAAABJRU5ErkJggg==");
 }
@@ -241,6 +303,9 @@ html {
   -webkit-user-select: none;
   -moz-user-select: none;
 }
+// .active{
+//   color:red
+// }
 
 .grp-handler-close {
   color: rgba(0, 0, 0, 0.4);

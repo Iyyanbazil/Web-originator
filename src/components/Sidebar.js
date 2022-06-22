@@ -1,6 +1,7 @@
 function Sidebar() {
   return (
     <>
+  
       <ul className="nav nav-tabs" id="myTab" role="tablist">
         <li className="nav-item" role="presentation">
           <button
@@ -13,7 +14,8 @@ function Sidebar() {
             aria-controls="block"
             aria-selected="true"
           >
-            <i className="fa fa-cubes"></i>
+            <i className="fa fa-cubes">block</i>
+         
           </button>
         </li>
         <li className="nav-item" role="presentation">
@@ -27,7 +29,8 @@ function Sidebar() {
             aria-controls="layer"
             aria-selected="false"
           >
-            <i className="fa fa-tasks"></i>
+            <i className="fa fa-tasks">body</i>
+            
           </button>
         </li>
         <li className="nav-item" role="presentation">
@@ -41,7 +44,8 @@ function Sidebar() {
             aria-controls="style"
             aria-selected="false"
           >
-            <i className="fa fa-paint-brush"></i>
+            <i className="fa fa-paint-brush">Style</i>
+           
           </button>
         </li>
         <li className="nav-item" role="presentation">
@@ -55,9 +59,26 @@ function Sidebar() {
             aria-controls="trait"
             aria-selected="false"
           >
-            <i className="fa fa-cog"></i>
+            <i className="fa fa-cog">trait</i>
+            <p></p>
           </button>
         </li>
+        {/* *********added by ayyan****** */}
+        {/* <li className="nav-item" role="presentation">
+          <button
+            className="nav-link"
+            id="logo-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#logo"
+            type="button"
+            role="tab"
+            aria-controls="logo"
+            aria-selected="false"
+          >
+            <i className="fa fa-cog">logo</i>
+          </button>
+        </li> */}
+        {/* ******* */}
       </ul>
       <div className="tab-content">
         <div
@@ -91,6 +112,16 @@ function Sidebar() {
           aria-labelledby="trait-tab"
         >
           <div id="trait-container"></div>
+        </div>
+
+        {/* **********added by ayyan  */}
+        <div
+          className="tab-pane fade"
+          id="logo"
+          role="tabpanel"
+          aria-labelledby="logo-tab"
+        >
+          <div id="logo-container"></div>
         </div>
       </div>
     </>

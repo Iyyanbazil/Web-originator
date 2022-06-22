@@ -3,12 +3,31 @@ import './home1.css';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import data from "./Data/dataHome"
-import Navbar from './navbar';
-import Login from './login';
-import { useContext } from "react";
-import { userContext } from "./userContext";
+import Carousel from 'react-material-ui-carousel'
+import {GoLocation} from 'react-icons/go'
+import {AiOutlineMail} from 'react-icons/ai'
+import {AiFillGithub} from 'react-icons/ai'
+import {AiOutlineLinkedin} from "react-icons/ai"
+import {RiFacebookCircleLine} from 'react-icons/ri'
 const Home1 = () => {
-
+  var items = [
+    {
+        name: "./home/2.jpg",
+        description: "this is blog image"
+    },
+    {
+        name: "./home/3.jpg",
+        description: "this is gallery image"
+    },
+    {
+      name: "./home/4.jpg",
+      description: "this is pizza image"
+  },
+  {
+    name: "./home/5.jpg",
+    description: "this is portfolio image"
+},
+  ]
   const newData = data.map((data) => {
     return (
       <div className='grid' key={data.id}>
@@ -22,23 +41,33 @@ const Home1 = () => {
 
   return (
     <>
-      {/* <Navbar /> */}
-      {/* <h1>{user.Fname}</h1> */}
-      <div className='home_main'>
+     
+      <div className='home_main' id="create">
         {/* <h1 className='main_heading'>Start Creating Website.</h1> */}
         <img src="/images/5.gif" className='home-img-create'/>
         {/* <div className='home-create-btn-img'> */}
        
 
-<Link to='/create' className='create_link'>   Create </Link>
+<Link to='/create' className='create_link' >   Create </Link>
        
       </div>
 
       {/* <img src="/DND images/Capture.PNG" alt="" /> */}
 
-      <div className='home_div1'>
+    <div>
+      {/* <img src="https://inwise.com/wp-content/uploads/2019/01/screen_animazia_muzik_160119_ENG.gif" height="300px" width="300px"></img> */}
+      <div className='home-carousel'>
+      <Carousel duration="500">
+            {
+                items.map( (item, i) => (
+                  <img src={item.name} height="250px" width="800px" className='home-carousel-img'></img>
+                ) )
+            }
+        </Carousel>
+        </div>
+      {/* <img src="https://uploads-ssl.webflow.com/5daaade3e3e3f0d01b1daa77/606589b25b7d42a3ee8151b1_UnlayerHeroAnimation.gif"></img> */}
         <h2 className='home_h2'>
-          Effortless website building for bussiness people.
+          Effortless webpage building for  people.
         </h2>
       </div>
 
@@ -46,13 +75,13 @@ const Home1 = () => {
       <div className='home_grid'>
         <div className='home_grid_column1'>
           <p>
-            <b>Built-in tools for marketing</b>
+            <b>Built-in Templates</b>
           </p>
           <br />
           <p>
-            Attracts customers with <br /> SEO (Search Engine Optimization){' '}
+            just one click <br /> and tempate will be {' '}
             <br />
-            Domian Buying & hosting
+            ready for you
           </p>
         </div>
         <div className='home_grid_column2'>
@@ -71,9 +100,8 @@ const Home1 = () => {
           </p>
           <br />
           <p>
-            Warm hearted welcome to coders but no coding is required. Start
-            building your website with zero knowledge of coding by DND like
-            Features.
+            Warm hearted welcome to coders but no coding is required. 
+            
           </p>
         </div>
       </div>
@@ -125,12 +153,11 @@ const Home1 = () => {
             </div>
             <div className='how_column2_div2'>
               <p>
-                <b>Publish your Website.</b>
+                <b>Edit Templates</b>
               </p>
               <br />
               <p>
-                Buy Domain and start hosting your website worldwide. In short
-                publish your website.
+               Edit built in tempates according to your needs and customize & style them as you want
               </p>
             </div>
           </div>
@@ -158,6 +185,30 @@ const Home1 = () => {
           </div>
         </div>
       </div>
+      <footer className='footer-home'>
+<div className='main-grid-footer'>
+  <div className='footer-col1'>
+    <h3><b>WEB ORIGINATOR</b></h3>
+    <p><GoLocation size="1.2rem"/>Sir Syed College of Computer Science Gulber III Lahore</p>
+    <p><AiOutlineMail size="1.2rem"/>ayyanbazil000@gmail.com</p>
+    <p className='rights-footer'><b>All rights 2022 @WOG</b></p>
+    </div>
+  <div className='footer-col2'>
+<h3><b>Find Us at</b></h3>
+<ul>
+  <li className='footer-list'><a className='footer-list' href="https://github.com/Iyyanbazil" target='blank'><AiFillGithub size="2rem"/> GitHub</a></li>
+  <li className='footer-list'><a className='footer-list' href="https://www.linkedin.com/in/ayyan-bazil-82a88a219/" target='blank'><AiOutlineLinkedin size="2rem"/> LinekdIn</a></li>
+  <li className='footer-list'><a className='footer-list' href="https://www.facebook.com/profile.php?id=100014813775072" target='blank'><RiFacebookCircleLine size="2rem"/>Facebook</a></li>
+  </ul>
+
+
+
+  <a  href="#create" className='footer-to-top'><u>Back to top ^</u></a>
+  </div>
+
+</div>
+
+      </footer>
     </>
   );
 };

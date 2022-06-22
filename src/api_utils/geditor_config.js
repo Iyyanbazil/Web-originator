@@ -4,11 +4,12 @@ import $ from "jquery";
 import grapesjsBlockBootstrap from "grapesjs-blocks-bootstrap4";
 import grapesjsPluginExport from "grapesjs-plugin-export";
 import grapesjsStyleBg from "grapesjs-style-bg";
-
+import {BiImageAdd} from 'react-icons/bi';
 import {
   addEditorCommand,
   deviceManager,
   layerManager,
+  logoManger,
   panels,
   scripts,
   selectorManager,
@@ -20,6 +21,7 @@ import {
 } from "./geditor_utils";
 import tailwindComponent from "../plugins/tailwind";
 import swiperComponent from "../plugins/swiper";
+import blocks from "../plugins/swiper/blocks";
 
 const geditorConfig = (assets, pageId) => {
   $(".panel__devices").html("");
@@ -29,6 +31,7 @@ const geditorConfig = (assets, pageId) => {
   $("#styles-container").html("");
   $("#layers-container").html("");
   $("#trait-container").html("");
+  
 
   // Content for Preview
   const navbar = $("#navbar");
@@ -39,9 +42,17 @@ const geditorConfig = (assets, pageId) => {
 
     container: "#editor",
     allowScripts: 1,
+    
     blockManager: {
       appendTo: "#blocks",
+      
       blocks:[
+        // {
+         
+        //   id:"logo",
+        //   label:"logo",
+        //   content:'<p>ayyan</p>',
+        // },
 //         {
 //           id:'ayyan',
 //           label:"Navbar",
@@ -3083,15 +3094,171 @@ const geditorConfig = (assets, pageId) => {
 
 
 //         },
+
+
+
 {
-  
+  id:"image text",
+  label:`Image +text`,
+media:`<?xml version="1.0" ?><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g><path d="M0 0h24v24H0z" fill="none"/><path d="M21 15v3h3v2h-3v3h-2v-3h-3v-2h3v-3h2zm.008-12c.548 0 .992.445.992.993v9.349A5.99 5.99 0 0 0 20 13V5H4l.001 14 9.292-9.293a.999.999 0 0 1 1.32-.084l.093.085 3.546 3.55a6.003 6.003 0 0 0-3.91 7.743L2.992 21A.993.993 0 0 1 2 20.007V3.993A1 1 0 0 1 2.992 3h18.016zM8 7a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/></g></svg>`,
+  content:`
+  <style>
+body {font-family: "Times New Roman", Georgia, Serif;}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display";
+  letter-spacing: 5px;
+}
+</style>
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+  <img class="w3-image" src="/w3images/architect.jpg" alt="Architecture" width="1500" height="300">
+  <div class="w3-display-middle w3-margin-top w3-center">
+    <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>BR</b></span> <span class="w3-hide-small w3-text-light-grey">Architects</span></h1>
+  </div>
+</header>
+
+  `
+},
+{
+  id:"image btn",
+  label:"Name Header",
+  media:`<?xml version="1.0" ?><svg enable-background="new 0 0 32 32" height="47px" id="svg2" version="1.1" viewBox="0 0 32 32" width="47px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg"><g id="background"><rect fill="none" height="32" width="32"/></g><g id="text_x5F_bold"><path d="M24,10V8c0,0,0-6-6-6H7.938v28H18.03C24,30,24,24,24,24v-2c0-6-6-6-6-6S24,16,24,10z M16,24h-2v-4h2c0,0,2,0,2,2   S16,24,16,24z M16,12h-2V8h2c0,0,2,0,2,2S16,12,16,12z"/></g></svg>`,
+  content:`
+  <header class="w3-container w3-center w3-padding-48 w3-white">
+  <h1 class="w3-xxxlarge"><b>JANE BLOGLIFE</b></h1>
+  <h6>Welcome to the blog of <span class="w3-tag">Jane's world</span></h6>
+</header>
+  `
+},
+{
+  id:"textimage",
+  label:"text over image",
+  media:`<?xml version="1.0" ?><svg viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg"><title/><g id="Web"><circle cx="38" cy="41" r="3"/><path d="M87,22V17a7.0085,7.0085,0,0,0-7-7H8a7.0085,7.0085,0,0,0-7,7v5ZM52,15H80a1,1,0,0,1,0,2H52a1,1,0,0,1,0-2ZM26,13a3,3,0,1,1-3,3A3.0033,3.0033,0,0,1,26,13Zm-8,0a3,3,0,1,1-3,3A3.0033,3.0033,0,0,1,18,13Zm-8,0a3,3,0,1,1-3,3A3.0033,3.0033,0,0,1,10,13Z"/><circle cx="26" cy="16" r="1"/><circle cx="18" cy="16" r="1"/><circle cx="10" cy="16" r="1"/><path d="M56,38.4141,39.707,54.707a1,1,0,0,1-1.414-1.414l17-17a.9994.9994,0,0,1,1.414,0L78,57.5859V31H10V60.5859L25.293,45.293a.9994.9994,0,0,1,1.414,0l17,17a1,1,0,1,1-1.414,1.414L26,47.4141l-16,16V69H78V60.4141ZM33,41a5,5,0,1,1,5,5A5.0059,5.0059,0,0,1,33,41Z"/><path d="M1,24V71a7.0085,7.0085,0,0,0,7,7H80a7.0085,7.0085,0,0,0,7-7V24ZM80,70a1,1,0,0,1-1,1H9a1,1,0,0,1-1-1V30a1,1,0,0,1,1-1H79a1,1,0,0,1,1,1Z"/></g></svg>`,
+  content:`
+  <div  >
+  <img class="w3-image" src="/w3images/architect.jpg" alt="Architecture" width="400px" height="300px">
+  <div class="w3-display-topleft w3-text-white" style="padding:24px 48px">
+    <h1 class="w3-jumbo w3-hide-small">New arrivals</h1>
+    <h1 class="w3-hide-large w3-hide-medium">New arrivals</h1>
+    <h1 class="w3-hide-small">COLLECTION 2016</h1>
+    <p><a href="#jeans" class="w3-button w3-black w3-padding-large w3-large">SHOP NOW</a></p>
+  </div>
+</div>
+
+
+  `
+},
+{
+  id:"navbar",
+  label:"NavBar",
+  media:`<?xml version="1.0" ?><svg id="Outlined" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><title/><g id="Fill"><rect height="2" width="22" x="3" y="15"/><rect height="2" width="26" x="3" y="21"/><rect height="2" width="26" x="3" y="9"/></g></svg>`,
+  content:`
+  <!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="topnav" id="myTopnav">
+  <a href="#home" class="active">Home</a>
+  <a href="#news">News</a>
+  <a href="#contact">Contact</a>
+  <a href="#about">About</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
+</body>
+</html>
+  `,
+},
+{
+  id:"list",
+  label:"list",
+  media:`<?xml version="1.0" ?><svg height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg"><path d="M4 34h4v1h-2v2h2v1h-4v2h6v-8h-6v2zm2-18h2v-8h-4v2h2v6zm-2 6h3.6l-3.6 4.2v1.8h6v-2h-3.6l3.6-4.2v-1.8h-6v2zm10-12v4h28v-4h-28zm0 28h28v-4h-28v4zm0-12h28v-4h-28v4z"/><path d="M0 0h48v48h-48z" fill="none"/></svg>`,
+  content:`<ul>
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ul>`
+},
+]
       
-      ]
+      
     },
   
-  
+ 
     styleManager: styleManager,
     layerManager: layerManager,
     // storageManager:StorageManager,

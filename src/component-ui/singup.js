@@ -1,11 +1,12 @@
 import React from "react";
 import { Link, BrowserRouter } from "react-router-dom";
 import "./signup.css";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 import axios from "axios";
 const Signup = () => {
   const [showpass, setshowpass] = useState(false);
+  const [email,setemail]=useState(false)
   const [sign, setsign] = useState({
     Fname: "",
     Lname: "",
@@ -13,6 +14,41 @@ const Signup = () => {
     password: "",
     Cpassword: "",
   });
+  useEffect(() => {
+    if(sign.password!= "" && sign.Cpassword!="" &&sign.password!=sign.Cpassword){
+      setshowpass(true)
+    }else{
+      setshowpass(false)
+    }
+    var mailformat = /^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/;
+    // if(sign.password!=""){
+    //   if(sign.email.includes("@") && sign.email.includes(".com") &&sign.email.includes(".pk")&& sign.email!="" ){
+    //     setemail(false)
+    //   }else{
+    //     setemail(true)
+    //   }
+    // }
+     if(sign.email.match(mailformat)){
+      setemail(true)
+      }else{
+      setemail(false)
+      }
+    // if(sign.email.includes("@") && sign.email.includes(".com") &&sign.email.includes(".pk") && sign.email!="" ){
+    //   setemail(false)
+    // }
+    // if(sign.email.includes("@")){
+    //   setemail(false)
+    // }else{
+    //   if(sign.email!=""){
+    //     setemail(true)
+    //   }else{
+    //     setemail(false)
+    //   }
+      
+    // }
+    
+  }, [sign])
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -20,9 +56,10 @@ const Signup = () => {
       ...sign,
       [name]: value,
     });
+   
     console.log(sign);
   };
-  const submitForm = () => {
+  const submitForm =async () => {
     if (
       sign.Fname != "" &&
       sign.Lname != "" &&
@@ -30,16 +67,31 @@ const Signup = () => {
       sign.password != "" &&
       sign.Cpassword != ""
     ) {
+      
       if (sign.password === sign.Cpassword) {
-        axios
+        const res= await axios
           .post("/Signup", sign)
-          .then((res) => console.log(res), alert("form is submitted"));
-        document.getElementById("Fname").value = "";
-        document.getElementById("Lname").value = "";
-        document.getElementById("email").value = "";
-        document.getElementById("password").value = "";
-        document.getElementById("Cpassword").value = "";
-        window.location.href = "http://localhost:3000/login";
+          // .then((res) => console.log(res) );
+          console.log(res.data);
+          if(res.data==="user exist"){
+            alert("Email already taken")
+          }else{
+            document.getElementById("Fname").value = "";
+            document.getElementById("Lname").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("password").value = "";
+            document.getElementById("Cpassword").value = "";
+            window.location.href = "http://localhost:3000/login";
+          }
+          // if(res.data==="user created"){
+        
+          // }
+          
+      
+          // else{
+     
+          // }
+       
       } else {
         setshowpass(true);
       }
@@ -86,6 +138,7 @@ const Signup = () => {
               value={sign.email}
               name="email"
             />
+            {email && (<p>Invalid Email</p>)}
           </div>
           <div className="pass_div">
             <input

@@ -445,6 +445,7 @@ export const selectorManager = {
   appendTo: "#styles-container",
 };
 export const panels = {
+  
   defaults: [
     {
       id: "basic-actions",
@@ -531,6 +532,36 @@ export const deviceManager = {
 };
 
 export const addEditorCommand = (editor) => {
+ 
+  // const cm = editor.Commands;
+  // cm.add('svg-icon', {
+  //       run(editor, sender, opts) {
+  //         // const assettarget = opts.target;
+  //          editor.Modal.open({
+  //           title: 'Select Icon',
+  //           content: `<div class="gjs-am-assets-cont">
+  //       <div class="gjs-am-assets-header" style="display: none;">
+  //       </div>
+  //       <div class="gjs-am-assets gjs-am-assets--show" data-el="assets"><div class="gjs-am-asset gjs-am-svg-icon">
+  //       <div class="gjs-am-preview-cont">
+  
+  //           <div class="gjs-am-preview-bg gjs-checker-bg"></div>
+  //           <div class="gjs-am-icon" style="text-align: center; z-index: 1; position: relative; height: 100%">
+  //             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4.93 2.93A9.969 9.969 0 0 0 2 10c0 2.76 1.12 5.26 2.93 7.07l1.41-1.41A7.938 7.938 0 0 1 4 10c0-2.21.89-4.22 2.34-5.66L4.93 2.93m14.14 0l-1.41 1.41A7.955 7.955 0 0 1 20 10c0 2.22-.89 4.22-2.34 5.66l1.41 1.41A9.969 9.969 0 0 0 22 10c0-2.76-1.12-5.26-2.93-7.07M7.76 5.76A5.98 5.98 0 0 0 6 10c0 1.65.67 3.15 1.76 4.24l1.41-1.41A3.99 3.99 0 0 1 8 10c0-1.11.45-2.11 1.17-2.83L7.76 5.76m8.48 0l-1.41 1.41A3.99 3.99 0 0 1 16 10c0 1.11-.45 2.11-1.17 2.83l1.41 1.41A5.98 5.98 0 0 0 18 10c0-1.65-.67-3.15-1.76-4.24M12 8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2m-1 6v4h-1c-.55 0-1 .45-1 1H2v2h7c0 .55.45 1 1 1h4c.55 0 1-.45 1-1h7v-2h-7c0-.55-.45-1-1-1h-1v-4h-2z"></path></svg>
+  
+  //           </div>
+  
+  //       </div>
+  //       <div class="gjs-am-meta">
+  
+  //       <div class="gjs-am-name">Access point network</div>
+  //       </div>
+  //     </div>`,
+  //         });
+  //       }
+  //     });
+
+
   // Commands
   editor.Commands.add("set-device-desktop", {
     run: (editor) => editor.setDevice("Desktop"),
@@ -643,7 +674,10 @@ export const styles = [
 // "https://www.w3schools.com/w3css/4/w3.css",
 // 'https://fonts.googleapis.com/css?family=Roboto',
 // "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
-
+"https://www.w3schools.com/w3css/4/w3.css",
+"https://www.w3schools.com/w3css/4/w3.css",
+"https://fonts.googleapis.com/icon?family=Material+Icons",
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 ];
 
 export const toggleSidebar = (fromEditor) => {

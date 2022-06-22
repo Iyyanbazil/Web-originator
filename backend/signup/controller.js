@@ -15,6 +15,7 @@ export const postData = (req, res) => {
       });
       user.save();
     //   console.log(req.body);
+    res.json({data:"user created"})
     }
   });
 };
