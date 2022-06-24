@@ -103,6 +103,7 @@ const Home = ({page}) => {
           </form>
         </div>
         <div className="col-12 my-2">
+          <h6 >Click on Edit/Pencil button from action to navigate to the editor </h6>
           <table className="table table-bordered table-hover">
             <thead>
               <tr>

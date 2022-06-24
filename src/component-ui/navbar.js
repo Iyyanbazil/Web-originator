@@ -96,6 +96,51 @@ const logout=()=>{
             </div>
           )
           }
+          <div class="dropdown">
+              <button
+              // className="home-signup"
+                class=" dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton4"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+               
+              >
+                Create
+              
+              </button>
+              <ul
+                class="dropdown-menu dropdown-menu-dark"
+                aria-labelledby="dropdownMenuButton4"
+              >
+                  
+                {isloged ? (<li> <Link class="dropdown-item" to="/createPage">
+                    By Drag & Drop
+                  </Link>
+                   <Link class="dropdown-item" to="/create/byTemplate">
+                   By Template
+                 </Link> </li>)
+                 :
+                 (<li> <Link class="dropdown-item" to="/login">
+                 By Drag & Drop
+               </Link>
+                <Link class="dropdown-item" to="/login">
+                By Template
+              </Link> </li>)
+                
+              }
+              
+                  {/* <Link class="dropdown-item" to="/dashboard">
+                    Profile
+                  </Link>
+                </li> */}
+                {/* <li >
+                  <a class="dropdown-item" href="/" onClick={()=>logout()} >
+                    Log out
+                  </a>
+                </li> */}
+              </ul>
+            </div>
         
         </div>
       </nav>

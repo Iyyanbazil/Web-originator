@@ -123,4 +123,17 @@ width: 90px;
     /* font-size: 20px; */
    
 }
+#dropdownMenuButton4{
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    /* background-color: rgb(231, 78, 78); */
+    background-color: rgb(95, 128, 236);
+    border: none;
+ /* font-weight: bolder; */
+ padding: 2px 10px 2px 10px;
+ font-size: 21px;
+    margin-left: 30px;
+    
+}
 
