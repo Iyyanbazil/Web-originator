@@ -101,7 +101,7 @@ function Sidebar() {
           className="tab-pane fade"
           id="style"
           role="tabpanel"
-          aria-labelledby="style-tab"
+          // aria-labelledby="style-tab"
         >
           <div id="styles-container"></div>
         </div>
@@ -114,7 +114,7 @@ function Sidebar() {
           <div id="trait-container"></div>
         </div>
 
-        {/* **********added by ayyan  */}
+        {/* **********added by ayyan 
         <div
           className="tab-pane fade"
           id="logo"
@@ -122,7 +122,7 @@ function Sidebar() {
           aria-labelledby="logo-tab"
         >
           <div id="logo-container"></div>
-        </div>
+        </div> */}
       </div>
     </>
   );

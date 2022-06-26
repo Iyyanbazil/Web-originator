@@ -1,5 +1,7 @@
 import { API_HOST } from ".";
-
+// import grapesjs from 'grapesjs';
+// import plugin from 'grapesjs-video-embed-manager';
+// import 'grapesjs/dist/css/grapes.min.css';
 export const styleManager = {
   appendTo: "#styles-container",
   sectors: [
@@ -101,7 +103,7 @@ export const styleManager = {
         "line-height",
         "text-align",
         "text-decoration",
-        "text-shadow",
+        // "text-shadow",
       ],
       properties: [
         { name: "Font",property: "font-family" },
@@ -145,15 +147,16 @@ export const styleManager = {
             },
           ],
         },
-        {
-          property: "text-shadow",
-          properties: [
-            { name: "X position", property: "text-shadow-h" },
-            { name: "Y position", property: "text-shadow-v" },
-            { name: "Blur", property: "text-shadow-blur" },
-            { name: "Color", property: "text-shadow-color" },
-          ],
-        },
+        // {
+        //   name:"text-shadow",property:"text-shadow-h "
+        //   // property: "text-shadow",
+        //   // properties: [
+        //   //   { name: "X position", property: "text-shadow-h" },
+        //   //   { name: "Y position", property: "text-shadow-v" },
+        //   //   { name: "Blur", property: "text-shadow-blur-radius" },
+        //   //   { name: "Color", property: "text-shadow-color" },
+        //   // ],
+        // },
       ],
     },
     {
@@ -163,7 +166,7 @@ export const styleManager = {
         "opacity",
         "border-radius",
         "border",
-        "box-shadow",
+        // "box-shadow",
         "background-color",
       ],
       properties: [
@@ -185,18 +188,19 @@ export const styleManager = {
             { name: "Left",type:"slider",property: "border-bottom-right-radius" },
           ],
         },
-        {
-          property: "box-shadow",
-          property:"box-shadow",
-          // properties: [
-          //   { name: "X position", property: "box-shadow-h" },
-          //   { name: "Y position", property: "box-shadow-v" },
-          //   { name: "Blur", property: "box-shadow-blur" },
-          //   { name: "Spread", property: "box-shadow-spread" },
-          //   { name: "Color", property: "box-shadow-color" },
-          //   { name: "Shadow type", property: "box-shadow-type" },
-          // ],
-        },
+        // {
+         
+        //   property:"box-shadow",
+        //   properties: [
+        //     { name: "X position", property: "box-shadow-h" },
+        //     { name: "Y position", property: "box-shadow-v" },
+        //     { name: "Blur", property: "box-shadow-blur" },
+        //     { name: "Spread", property: "box-shadow-spread" },
+        //     { name: "Color",type:"color", property: "box-shadow-color" },
+        //     { name: "Shadow type", property: "box-shadow-type" },
+      
+        //   ],
+        // },
         {
           id: "background-color",
           property: "background-color",
@@ -205,37 +209,38 @@ export const styleManager = {
       ],
     },
     {
-      name: "Extra",
+      name: "Rotate",
       open: false,
-      buildProps: ["transition", "perspective", "transform"],
+     
+      buildProps: [ "transform"],
       properties: [
-        {
-          property: "transition",
-          properties: [
-            { name: "Property", property: "transition-property" },
-            { name: "Duration", property: "transition-duration" },
-            { name: "Easing", property: "transition-timing-function" },
-          ],
-        },
+        // {
+        //   property: "transition",
+        //   properties: [
+        //     { name: "Property", property: "transition-property"  },
+        //     { name: "Duration", property: "transition-duration" },
+        //     // { name: "Easing", property: "transition-timing-function" },
+        //   ],
+        // },
         {
           property: "transform",
           properties: [
-            { name: "Rotate X", property: "transform-rotate-x" },
-            { name: "Rotate Y", property: "transform-rotate-y" },
-            { name: "Rotate Z", property: "transform-rotate-z" },
-            { name: "Scale X", property: "transform-scale-x" },
-            { name: "Scale Y", property: "transform-scale-y" },
-            { name: "Scale Z", property: "transform-scale-z" },
+            { name: "Rotate X", property: "transform-rotate-x",type: "slider" },
+            { name: "Rotate Y", property: "transform-rotate-y",type: "slider" },
+            { name: "Rotate Z", property: "transform-rotate-z",type: "slider" },
+            { name: "Expand X", property: "transform-scale-x",type: "slider" },
+            { name: "Expand Y", property: "transform-scale-y",type: "slider" },
+            { name: "Expand Z", property: "transform-scale-z",type: "slider" },
           ],
         },
       ],
     },
     {
-      name: "Flex",
+      name: "Positioning",
       open: false,
       properties: [
         {
-          name: "Flex Container",
+          name: "Content position",
           property: "display",
           type: "select",
           defaults: "block",
@@ -252,7 +257,7 @@ export const styleManager = {
         {
           name: "Direction",
           property: "flex-direction",
-          type: "radio",
+          type: "select",
           defaults: "row",
           list: [
             {
@@ -282,19 +287,21 @@ export const styleManager = {
           ],
         },
         {
-          name: "Justify",
+          name: "Row Position",
           property: "justify-content",
-          type: "radio",
+          type: "select",
           defaults: "flex-start",
           list: [
             {
               value: "flex-start",
+              name:"Row-start",
               className: "icons-flex icon-just-start",
               title: "Start",
             },
             {
               value: "flex-end",
-              title: "End",
+              name:"end",
+              title: "Row-end",
               className: "icons-flex icon-just-end",
             },
             {
@@ -310,24 +317,27 @@ export const styleManager = {
             {
               value: "center",
               title: "Center",
+              name:"Row-center",
               className: "icons-flex icon-just-sp-cent",
             },
           ],
         },
         {
-          name: "Align",
+          name: "Column position",
           property: "align-items",
-          type: "radio",
+          type: "select",
           defaults: "center",
           list: [
             {
               value: "flex-start",
               title: "Start",
+              name:"col-start",
               className: "icons-flex icon-al-start",
             },
             {
               value: "flex-end",
               title: "End",
+              name:"col-end",
               className: "icons-flex icon-al-end",
             },
             {
@@ -338,6 +348,7 @@ export const styleManager = {
             {
               value: "center",
               title: "Center",
+              name:"col-center",
               className: "icons-flex icon-al-center",
             },
           ],
@@ -347,74 +358,74 @@ export const styleManager = {
           property: "label-parent-flex",
           type: "integer",
         },
-        {
-          name: "Order",
-          property: "order",
-          type: "integer",
-          defaults: 0,
-          min: 0,
-        },
-        {
-          name: "Flex",
-          property: "flex",
-          type: "composite",
-          properties: [
-            {
-              name: "Grow",
-              property: "flex-grow",
-              type: "integer",
-              defaults: 0,
-              min: 0,
-            },
-            {
-              name: "Shrink",
-              property: "flex-shrink",
-              type: "integer",
-              defaults: 0,
-              min: 0,
-            },
-            {
-              name: "Basis",
-              property: "flex-basis",
-              type: "integer",
-              units: ["px", "%", ""],
-              unit: "",
-              defaults: "auto",
-            },
-          ],
-        },
-        {
-          name: "Align",
-          property: "align-self",
-          type: "radio",
-          defaults: "auto",
-          list: [
-            {
-              value: "auto",
-              name: "Auto",
-            },
-            {
-              value: "flex-start",
-              title: "Start",
-              className: "icons-flex icon-al-start",
-            },
-            {
-              value: "flex-end",
-              title: "End",
-              className: "icons-flex icon-al-end",
-            },
-            {
-              value: "stretch",
-              title: "Stretch",
-              className: "icons-flex icon-al-str",
-            },
-            {
-              value: "center",
-              title: "Center",
-              className: "icons-flex icon-al-center",
-            },
-          ],
-        },
+        // {
+        //   name: "Order",
+        //   property: "order",
+        //   type: "integer",
+        //   defaults: 0,
+        //   min: 0,
+        // },
+        // {
+        //   name: "Flex",
+        //   property: "flex",
+        //   type: "composite",
+        //   properties: [
+        //     {
+        //       name: "Grow",
+        //       property: "flex-grow",
+        //       type: "integer",
+        //       defaults: 0,
+        //       min: 0,
+        //     },
+        //     {
+        //       name: "Shrink",
+        //       property: "flex-shrink",
+        //       type: "integer",
+        //       defaults: 0,
+        //       min: 0,
+        //     },
+        //     {
+        //       name: "Basis",
+        //       property: "flex-basis",
+        //       type: "integer",
+        //       units: ["px", "%", ""],
+        //       unit: "",
+        //       defaults: "auto",
+        //     },
+        //   ],
+        // },
+        // {
+        //   name: "Align",
+        //   property: "align-self",
+        //   type: "radio",
+        //   defaults: "auto",
+        //   list: [
+        //     {
+        //       value: "auto",
+        //       name: "Auto",
+        //     },
+        //     {
+        //       value: "flex-start",
+        //       title: "Start",
+        //       className: "icons-flex icon-al-start",
+        //     },
+        //     {
+        //       value: "flex-end",
+        //       title: "End",
+        //       className: "icons-flex icon-al-end",
+        //     },
+        //     {
+        //       value: "stretch",
+        //       title: "Stretch",
+        //       className: "icons-flex icon-al-str",
+        //     },
+        //     {
+        //       value: "center",
+        //       title: "Center",
+        //       className: "icons-flex icon-al-center",
+        //     },
+        //   ],
+        // },
       ],
     },
   ],
@@ -513,6 +524,7 @@ export const panels = {
           command: "set-device-mobile",
           togglable: false,
         },
+      
       ],
     },
   ],
@@ -528,40 +540,12 @@ export const deviceManager = {
       width: "320px",
       widthMedia: "480px",
     },
+    
   ],
 };
 
 export const addEditorCommand = (editor) => {
  
-  // const cm = editor.Commands;
-  // cm.add('svg-icon', {
-  //       run(editor, sender, opts) {
-  //         // const assettarget = opts.target;
-  //          editor.Modal.open({
-  //           title: 'Select Icon',
-  //           content: `<div class="gjs-am-assets-cont">
-  //       <div class="gjs-am-assets-header" style="display: none;">
-  //       </div>
-  //       <div class="gjs-am-assets gjs-am-assets--show" data-el="assets"><div class="gjs-am-asset gjs-am-svg-icon">
-  //       <div class="gjs-am-preview-cont">
-  
-  //           <div class="gjs-am-preview-bg gjs-checker-bg"></div>
-  //           <div class="gjs-am-icon" style="text-align: center; z-index: 1; position: relative; height: 100%">
-  //             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4.93 2.93A9.969 9.969 0 0 0 2 10c0 2.76 1.12 5.26 2.93 7.07l1.41-1.41A7.938 7.938 0 0 1 4 10c0-2.21.89-4.22 2.34-5.66L4.93 2.93m14.14 0l-1.41 1.41A7.955 7.955 0 0 1 20 10c0 2.22-.89 4.22-2.34 5.66l1.41 1.41A9.969 9.969 0 0 0 22 10c0-2.76-1.12-5.26-2.93-7.07M7.76 5.76A5.98 5.98 0 0 0 6 10c0 1.65.67 3.15 1.76 4.24l1.41-1.41A3.99 3.99 0 0 1 8 10c0-1.11.45-2.11 1.17-2.83L7.76 5.76m8.48 0l-1.41 1.41A3.99 3.99 0 0 1 16 10c0 1.11-.45 2.11-1.17 2.83l1.41 1.41A5.98 5.98 0 0 0 18 10c0-1.65-.67-3.15-1.76-4.24M12 8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2m-1 6v4h-1c-.55 0-1 .45-1 1H2v2h7c0 .55.45 1 1 1h4c.55 0 1-.45 1-1h7v-2h-7c0-.55-.45-1-1-1h-1v-4h-2z"></path></svg>
-  
-  //           </div>
-  
-  //       </div>
-  //       <div class="gjs-am-meta">
-  
-  //       <div class="gjs-am-name">Access point network</div>
-  //       </div>
-  //     </div>`,
-  //         });
-  //       }
-  //     });
-
-
   // Commands
   editor.Commands.add("set-device-desktop", {
     run: (editor) => editor.setDevice("Desktop"),
@@ -569,6 +553,7 @@ export const addEditorCommand = (editor) => {
   editor.Commands.add("set-device-mobile", {
     run: (editor) => editor.setDevice("Mobile"),
   });
+
 
   // Save Button
   editor.Commands.add("saveDb", {
@@ -631,7 +616,8 @@ export const scripts = [
   "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js",
 
   // 6
-  
+  "https://unpkg.com/grapesjs",
+  "https://unpkg.com/grapesjs-video-embed-manager"
 
   
   
@@ -677,7 +663,8 @@ export const styles = [
 "https://www.w3schools.com/w3css/4/w3.css",
 "https://www.w3schools.com/w3css/4/w3.css",
 "https://fonts.googleapis.com/icon?family=Material+Icons",
-"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
+"https://unpkg.com/grapesjs/dist/css/grapes.min.css"
 ];
 
 export const toggleSidebar = (fromEditor) => {

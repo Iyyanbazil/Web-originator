@@ -161,11 +161,11 @@ const Signup = () => {
             />
             {showpass && (<p className="pass-not-match">*Password not matched</p>)}
           </div>
-          <div className="dob_div">
+          {/* <div className="dob_div">
             <h6>Date Of Birth*</h6>
 
             <input type="date" />
-          </div>
+          </div> */}
          
           <p className="policies">
             By clicking signup you agree to our terms data policy and cookies

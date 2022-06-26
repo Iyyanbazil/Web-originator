@@ -64,7 +64,7 @@ const Support = () => {
           <nav className="side-nav-support">
             <ul className="side-nav-ul">
               <li className="supprot-first">
-                <a href="#wog">WOG</a>
+                <a href="#connect">Multi Pages</a>
               </li>
               <li>
                 <div class="dropdown">

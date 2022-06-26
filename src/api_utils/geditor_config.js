@@ -4,7 +4,10 @@ import $ from "jquery";
 import grapesjsBlockBootstrap from "grapesjs-blocks-bootstrap4";
 import grapesjsPluginExport from "grapesjs-plugin-export";
 import grapesjsStyleBg from "grapesjs-style-bg";
+import plugin from 'grapesjs-video-embed-manager';
+import 'grapesjs/dist/css/grapes.min.css';
 import {BiImageAdd} from 'react-icons/bi';
+import {FiFacebook} from 'react-icons/fi'
 import {
   addEditorCommand,
   deviceManager,
@@ -41,6 +44,7 @@ const geditorConfig = (assets, pageId) => {
   const editor = grapesjs.init({
 
     container: "#editor",
+    
     allowScripts: 1,
     
     blockManager: {
@@ -3095,11 +3099,171 @@ const geditorConfig = (assets, pageId) => {
 
 //         },
 
+// {
+// id:"about",
+// label:"about",
+// content:
+// `
+// <!DOCTYPE html>
+// <html>
+// <head>
+// <meta name="viewport" content="width=device-width, initial-scale=1">
+// <style>
+// body, html {
+//   height: 100%;
+//   font-family: Arial, Helvetica, sans-serif;
+// }
 
+// * {
+//   box-sizing: border-box;
+// }
 
+// .bg-img {
+//   /* The image used */
+//   background-image: url("data:image/jpeg;base64,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");
+
+//   min-height: 380px;
+
+//   /* Center and scale the image nicely */
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   position: relative;
+// }
+
+// /* Add styles to the form container */
+// .container {
+//   position: absolute;
+//   right: 0;
+//   margin: 20px;
+//   max-width: 300px;
+//   padding: 16px;
+//   background-color: white;
+// }
+
+// /* Full-width input fields */
+// input[type=text], input[type=password] {
+//   width: 100%;
+//   padding: 15px;
+//   margin: 5px 0 22px 0;
+//   border: none;
+//   background: #f1f1f1;
+// }
+
+// input[type=text]:focus, input[type=password]:focus {
+//   background-color: #ddd;
+//   outline: none;
+// }
+
+// /* Set a style for the submit button */
+// .btn {
+//   background-color: #04AA6D;
+//   color: white;
+//   padding: 16px 20px;
+//   border: none;
+//   cursor: pointer;
+//   width: 100%;
+//   opacity: 0.9;
+// }
+
+// .btn:hover {
+//   opacity: 1;
+// }
+// </style>
+// </head>
+// <body>
+// <div class="bg-img">
+//   <form action="/action_page.php" class="container">
+//     <h1>Login</h1>
+
+//     <label for="email"><b>Email</b></label>
+//     <input type="text" placeholder="Enter Email" name="email" required>
+
+//     <label for="psw"><b>Password</b></label>
+//     <input type="password" placeholder="Enter Password" name="psw" required>
+
+//     <button type="submit" class="btn">Login</button>
+//   </form>
+// </div>
+
+// </body>
+// </html>
+
+// `
+// },
 {
-  id:"image text",
+id:"hero-img",
+label:"Button over Image",
+category:"Images",
+media:`<?xml version="1.0" ?><svg enable-background="new 0 0 32 32" height="47px" id="svg2" version="1.1" viewBox="0 0 32 32" width="47px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg"><g id="background"><rect fill="none" height="32" width="32"/></g><g id="text_x5F_bold"><path d="M24,10V8c0,0,0-6-6-6H7.938v28H18.03C24,30,24,24,24,24v-2c0-6-6-6-6-6S24,16,24,10z M16,24h-2v-4h2c0,0,2,0,2,2   S16,24,16,24z M16,12h-2V8h2c0,0,2,0,2,2S16,12,16,12z"/></g></svg>`,
+content:`
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.hero-image {
+ 
+  height: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.hero-text button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 10px 25px;
+  color: black;
+  background-color: #ddd;
+  text-align: center;
+  cursor: pointer;
+}
+
+.hero-text button:hover {
+  background-color: #555;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<div class="hero-image">
+<img></img>
+  <div class="hero-text">
+    <h1 style="font-size:50px">I am John Doe</h1>
+    <p>And I'm a Photographer</p>
+    <button>Hire me</button>
+  </div>
+</div>
+
+<p>Page Content..</p>
+
+</body>
+</html>
+`
+},
+{
+  id:"image-text",
   label:`Image +text`,
+  category:"Images",
 media:`<?xml version="1.0" ?><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g><path d="M0 0h24v24H0z" fill="none"/><path d="M21 15v3h3v2h-3v3h-2v-3h-3v-2h3v-3h2zm.008-12c.548 0 .992.445.992.993v9.349A5.99 5.99 0 0 0 20 13V5H4l.001 14 9.292-9.293a.999.999 0 0 1 1.32-.084l.093.085 3.546 3.55a6.003 6.003 0 0 0-3.91 7.743L2.992 21A.993.993 0 0 1 2 20.007V3.993A1 1 0 0 1 2.992 3h18.016zM8 7a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/></g></svg>`,
   content:`
   <style>
@@ -3119,8 +3283,528 @@ h1, h2, h3, h4, h5, h6 {
   `
 },
 {
-  id:"image btn",
+id:"avatar",
+label:"avatar",
+media:`<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+</svg>`,
+category:"Images",
+content:`
+<style>
+.round {
+  border-radius: 50%;
+}
+</style>
+</head>
+<body>
+
+<h2>Rounded Images</h2>
+
+<img class="round" src="img_avatar.png" alt="Avatar" >
+
+</body>
+`
+},
+{
+id:"fb",
+label:"Facebook",
+media:`<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+<path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+</svg>`,
+category:"Social button",
+content:`
+<style>
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+</style>
+<body>
+<a href="#" class="fa fa-facebook"></a>
+</body>
+`
+},
+{
+  id:"twitter",
+  label:"twitter",
+  category:"Social button",
+  media:`<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+  <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+</svg>`,
+  content:`
+  <style>
+  .fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+  }
+  
+  .fa:hover {
+      opacity: 0.7;
+  }
+  
+  .fa-twitter {
+    background: #3B5998;
+    color: white;
+  }
+  </style>
+  <body>
+  <a href="#" class="fa fa-twitter"></a>
+  </body>
+  `
+  },
+  {
+    id:"google",
+    label:"Google",
+    category:"Social button",
+    media:`<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">
+    <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"/>
+  </svg>`,
+    content:`
+    <style>
+    .fa {
+      padding: 20px;
+      font-size: 30px;
+      width: 50px;
+      text-align: center;
+      text-decoration: none;
+      margin: 5px 2px;
+    }
+    
+    .fa:hover {
+        opacity: 0.7;
+    }
+    
+    .fa-google {
+      background: #3B5998;
+      color: white;
+    }
+    </style>
+    <body>
+    <a href="#" class="fa fa-google"></a>
+    </body>
+    `
+    },
+    {
+      id:"linkedin",
+      label:"Linkedin",
+      category:"Social button",
+      media:`<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+      <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+    </svg>`,
+      content:`
+      <style>
+      .fa {
+        padding: 20px;
+        font-size: 30px;
+        width: 50px;
+        text-align: center;
+        text-decoration: none;
+        margin: 5px 2px;
+      }
+      
+      .fa:hover {
+          opacity: 0.7;
+      }
+      
+      .fa-linkedin {
+        background: #3B5998;
+        color: white;
+      }
+      </style>
+      <body>
+      <a href="#" class="fa fa-linkedin"></a>
+      </body>
+      `
+      },
+      {
+        id:"youtube",
+        label:"Youtube",
+        category:"Social button",
+        media:`<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+        <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
+      </svg>`,
+        content:`
+        <style>
+        .fa {
+          padding: 20px;
+          font-size: 30px;
+          width: 50px;
+          text-align: center;
+          text-decoration: none;
+          margin: 5px 2px;
+        }
+        
+        .fa:hover {
+            opacity: 0.7;
+        }
+        
+        .fa-youtube {
+          background: #3B5998;
+          color: white;
+        }
+        </style>
+        <body>
+        <a href="#" class="fa fa-youtube"></a>
+        </body>
+        `
+        },
+        {
+          id:"yahoo",
+          label:"yahoo",
+          category:"Social button",
+          media:`<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-currency-yen" viewBox="0 0 16 16">
+          <path d="M8.75 14v-2.629h2.446v-.967H8.75v-1.31h2.445v-.967H9.128L12.5 2h-1.699L8.047 7.327h-.086L5.207 2H3.5l3.363 6.127H4.778v.968H7.25v1.31H4.78v.966h2.47V14h1.502z"/>
+        </svg>`,
+          content:`
+          <style>
+          .fa {
+            padding: 20px;
+            font-size: 30px;
+            width: 50px;
+            text-align: center;
+            text-decoration: none;
+            margin: 5px 2px;
+          }
+          
+          .fa:hover {
+              opacity: 0.7;
+          }
+          
+          .fa-yahoo {
+            background: #3B5998;
+            color: white;
+          }
+          </style>
+          <body>
+          <a href="#" class="fa fa-yahoo"></a>
+          </body>
+          `
+          },
+          {
+            id:"home",
+            label:"Home",
+            media:'<i class="fa fa-home"></i>',
+            category:"Icons",
+            content:`
+            <style>
+.btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
+</style>
+<body>
+<button class="btn"><i class="fa fa-home"></i></button>
+      </body>
+            `
+          },
+          {
+            id:"bar",
+            label:"Bars",
+            media:'<i class="fa fa-bars"></i>',
+            category:"Icons",
+            content:`
+            <style>
+.btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
+</style>
+<body>
+<button class="btn"><i class="fa fa-bars"></i></button>
+      </body>
+            `
+          },
+          {
+            id:"trash",
+            label:"Trash",
+            media:'<i class="fa fa-trash"></i>',
+            category:"Icons",
+            content:`
+            <style>
+.btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
+</style>
+<body>
+<button class="btn"><i class="fa fa-trash"></i></button>
+      </body>
+            `
+          },
+          {
+            id:"close",
+            label:"Close",
+            media:'<i class="fa fa-close"></i>',
+            category:"Icons",
+            content:`
+            <style>
+.btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
+</style>
+<body>
+<button class="btn"><i class="fa fa-close"></i></button>
+      </body>
+            `
+          },
+          {
+            id:"folder",
+            label:"folder",
+            media:'<i class="fa fa-folder"></i>',
+            category:"Icons",
+            content:`
+            <style>
+.btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
+</style>
+<body>
+<button class="btn"><i class="fa fa-folder"></i></button>
+      </body>
+            `
+          },
+
+
+{
+id:"Team-cards",
+label:"Team cards",
+category:"Card",
+content:`
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+</style>
+</head>
+<body>
+
+<h2>Responsive "Meet The Team" Section</h2>
+<p>Resize the browser window to see the effect.</p>
+<br>
+
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">
+      <div class="container">
+        <h2>Jane Doe</h2>
+        <p class="title">CEO & Founder</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>example@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="/w3images/team2.jpg" alt="Mike" style="width:100%">
+      <div class="container">
+        <h2>Mike Ross</h2>
+        <p class="title">Art Director</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>example@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <img src="/w3images/team3.jpg" alt="John" style="width:100%">
+      <div class="container">
+        <h2>John Doe</h2>
+        <p class="title">Designer</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>example@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+
+`
+},
+{
+  id:"side-img",
+  label:"3 images",
+  category:"Images",
+  media:`<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-images" viewBox="0 0 16 16">
+  <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+  <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z"/>
+</svg>`,
+  content:`
+  <!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+ 
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+</head>
+<body>
+
+<h2>Images Side by Side</h2>
+<p>How to create side-by-side images with the CSS float property:</p>
+
+<div class="row">
+  <div class="column">
+    <img src="img_snow.jpg" alt="Snow" >
+  </div>
+  <div class="column">
+    <img src="img_forest.jpg" alt="Forest" >
+  </div>
+  <div class="column">
+    <img src="img_mountains.jpg" alt="Mountains" >
+  </div>
+</div>
+
+</body>
+</html>
+  `
+},
+{
+  id:"image-btn",
   label:"Name Header",
+  category:"Images",
   media:`<?xml version="1.0" ?><svg enable-background="new 0 0 32 32" height="47px" id="svg2" version="1.1" viewBox="0 0 32 32" width="47px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg"><g id="background"><rect fill="none" height="32" width="32"/></g><g id="text_x5F_bold"><path d="M24,10V8c0,0,0-6-6-6H7.938v28H18.03C24,30,24,24,24,24v-2c0-6-6-6-6-6S24,16,24,10z M16,24h-2v-4h2c0,0,2,0,2,2   S16,24,16,24z M16,12h-2V8h2c0,0,2,0,2,2S16,12,16,12z"/></g></svg>`,
   content:`
   <header class="w3-container w3-center w3-padding-48 w3-white">
@@ -3130,8 +3814,9 @@ h1, h2, h3, h4, h5, h6 {
   `
 },
 {
-  id:"textimage",
+  id:"text-image",
   label:"text over image",
+  category:"Images",
   media:`<?xml version="1.0" ?><svg viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg"><title/><g id="Web"><circle cx="38" cy="41" r="3"/><path d="M87,22V17a7.0085,7.0085,0,0,0-7-7H8a7.0085,7.0085,0,0,0-7,7v5ZM52,15H80a1,1,0,0,1,0,2H52a1,1,0,0,1,0-2ZM26,13a3,3,0,1,1-3,3A3.0033,3.0033,0,0,1,26,13Zm-8,0a3,3,0,1,1-3,3A3.0033,3.0033,0,0,1,18,13Zm-8,0a3,3,0,1,1-3,3A3.0033,3.0033,0,0,1,10,13Z"/><circle cx="26" cy="16" r="1"/><circle cx="18" cy="16" r="1"/><circle cx="10" cy="16" r="1"/><path d="M56,38.4141,39.707,54.707a1,1,0,0,1-1.414-1.414l17-17a.9994.9994,0,0,1,1.414,0L78,57.5859V31H10V60.5859L25.293,45.293a.9994.9994,0,0,1,1.414,0l17,17a1,1,0,1,1-1.414,1.414L26,47.4141l-16,16V69H78V60.4141ZM33,41a5,5,0,1,1,5,5A5.0059,5.0059,0,0,1,33,41Z"/><path d="M1,24V71a7.0085,7.0085,0,0,0,7,7H80a7.0085,7.0085,0,0,0,7-7V24ZM80,70a1,1,0,0,1-1,1H9a1,1,0,0,1-1-1V30a1,1,0,0,1,1-1H79a1,1,0,0,1,1,1Z"/></g></svg>`,
   content:`
   <div  >
@@ -3150,6 +3835,7 @@ h1, h2, h3, h4, h5, h6 {
 {
   id:"navbar",
   label:"NavBar",
+  category:"Navbar",
   media:`<?xml version="1.0" ?><svg id="Outlined" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><title/><g id="Fill"><rect height="2" width="22" x="3" y="15"/><rect height="2" width="26" x="3" y="21"/><rect height="2" width="26" x="3" y="9"/></g></svg>`,
   content:`
   <!DOCTYPE html>
@@ -3246,6 +3932,7 @@ function myFunction() {
 {
   id:"list",
   label:"list",
+  category:"List",
   media:`<?xml version="1.0" ?><svg height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg"><path d="M4 34h4v1h-2v2h2v1h-4v2h6v-8h-6v2zm2-18h2v-8h-4v2h2v6zm-2 6h3.6l-3.6 4.2v1.8h6v-2h-3.6l3.6-4.2v-1.8h-6v2zm10-12v4h28v-4h-28zm0 28h28v-4h-28v4zm0-12h28v-4h-28v4z"/><path d="M0 0h48v48h-48z" fill="none"/></svg>`,
   content:`<ul>
   <li>Coffee</li>
@@ -3266,7 +3953,7 @@ function myFunction() {
     selectorManager: selectorManager,
     panels: panels,
     deviceManager: deviceManager,
-    assetManager: { assets: assets, upload: false },
+    assetManager: { assets:assets, upload:false},
     storageManager: storageSetting(pageId),
     canvas: {
       styles: styles,
@@ -3279,7 +3966,10 @@ function myFunction() {
       grapesjsBlockBootstrap,
       grapesjsPluginExport,
       grapesjsStyleBg,
+      // editor => ['grapesjs-video-embed-manager'](editor, { /* options */ })
+      // plugin,
     ],
+    // plugins: [],
     pluginsOpts: {
       tailwindComponent: {},
       gjsBlockBasic: {},
@@ -3287,7 +3977,8 @@ function myFunction() {
       grapesjsBlockBootstrap: {},
       grapesjsPluginExport: {},
       grapesjsStyleBg: {},
-    },
+    
+  }
   });
 
   addEditorCommand(editor);
@@ -3304,6 +3995,7 @@ function myFunction() {
     // This will hide top panel where we have added the button
     panelTopBar.addClass("d-none");
   });
+ 
   editor.on("stop:preview", () => {
     // This event is reverse of the above event.
     console.log("It will trigger when we click on cancel preview icon");

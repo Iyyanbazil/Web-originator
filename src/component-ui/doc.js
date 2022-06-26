@@ -1,8 +1,8 @@
 const Doc =[
     {
-        id:"wog",
-        head:"Wog",
-        para:"Web Originator is a application that helps creating webpage with drag and drop and  pre-built templates .The Enrich editor comes with built in help components that makes is easy for user and also save time.user can style the components according to his taste and align the content as he wants",
+        id:"connect",
+        head:"Connect Pages",
+        para:"In order to connect multiple pages after editing pages download the code and run the web file by clicking on it.copy the url from top bar of the browser and use it in the link block of any page to use it",
         img:"",
     },
     {

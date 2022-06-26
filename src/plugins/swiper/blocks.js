@@ -3,8 +3,21 @@ export default (editor, opts = {}) => {
   const bm = editor.BlockManager;
   const style = `<style>
   .swiper-container {
-    width: 600px;
-    height: 300px;
+    width: 90%;
+    height: 200px;
+  margin-top:200px;
+  }
+
+  .swiper-button-next{
+   position:relative;
+   top:-100px;
+   left:100%;
+ 
+  }
+  .swiper-button-prev{
+    position:relative;
+    top:-100px
+  
   }
   .swiper-slide {
     text-align: center;
@@ -29,7 +42,7 @@ export default (editor, opts = {}) => {
   .swiper-slide img {
     display: block;
     width: 100%;
-    height: 100%;
+    // height: 100px;
     object-fit: cover;
   }
   </style>
@@ -42,18 +55,21 @@ export default (editor, opts = {}) => {
     </div> 
     `,
     category: opts.category,
-    content: `<div class="swiper-container mySwiper">
+    content: `
+  <div class="swiper-container mySwiper">
     <div class="swiper-wrapper">
-      <div class="swiper-slide">Slide 1</div>
-      <div class="swiper-slide">Slide 2</div>
-      <div class="swiper-slide">Slide 3</div>
-      <div class="swiper-slide">Slide 4</div>
-      <div class="swiper-slide">Slide 5</div>
+    
+      <div class="swiper-slide"><img></img></div>
+      <div class="swiper-slide"> <img></img></div>
+      <div class="swiper-slide"> <img></img></div>
+      <div class="swiper-slide"><img></img></div>
+     
     </div>
+    
     
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
-    <div class="swiper-pagination"></div>
+    // <div class="swiper-pagination"></div>
     
   </div> ${style}`,
   });
