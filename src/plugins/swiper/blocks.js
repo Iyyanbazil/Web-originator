@@ -39,7 +39,7 @@ export default (editor, opts = {}) => {
     align-items: center;
   }
 
-  .swiper-slide img {
+  .swiper-slide > img {
     display: block;
     width: 100%;
     // height: 100px;

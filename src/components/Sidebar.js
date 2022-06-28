@@ -14,7 +14,7 @@ function Sidebar() {
             aria-controls="block"
             aria-selected="true"
           >
-            <i className="fa fa-cubes">block</i>
+            <i className="fa fa-cubes">Blocks</i>
          
           </button>
         </li>
@@ -29,7 +29,7 @@ function Sidebar() {
             aria-controls="layer"
             aria-selected="false"
           >
-            <i className="fa fa-tasks">body</i>
+            <i className="fa fa-tasks">Body</i>
             
           </button>
         </li>
@@ -59,7 +59,7 @@ function Sidebar() {
             aria-controls="trait"
             aria-selected="false"
           >
-            <i className="fa fa-cog">trait</i>
+            <i className="fa fa-cog">Trait</i>
             <p></p>
           </button>
         </li>

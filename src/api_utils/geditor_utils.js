@@ -163,13 +163,25 @@ export const styleManager = {
       name: "Decorations",
       open: false,
       buildProps: [
+        'box-shadow',
         "opacity",
         "border-radius",
         "border",
-        // "box-shadow",
         "background-color",
       ],
       properties: [
+        {
+         
+          property: 'box-shadow',
+          properties: [
+            { name: 'X position', property: 'box-shadow-h'},
+            { name: 'Y position', property: 'box-shadow-v'},
+            { name: 'Blur', property: 'box-shadow-blur'},
+            { name: 'Spread', property: 'box-shadow-spread'},
+            { name: 'Color', property: 'box-shadow-color'},
+            { name: 'Shadow type', property: 'box-shadow-type'}
+          ],
+        },
         {
           type: "slider",
           property: "opacity",
@@ -188,19 +200,7 @@ export const styleManager = {
             { name: "Left",type:"slider",property: "border-bottom-right-radius" },
           ],
         },
-        // {
-         
-        //   property:"box-shadow",
-        //   properties: [
-        //     { name: "X position", property: "box-shadow-h" },
-        //     { name: "Y position", property: "box-shadow-v" },
-        //     { name: "Blur", property: "box-shadow-blur" },
-        //     { name: "Spread", property: "box-shadow-spread" },
-        //     { name: "Color",type:"color", property: "box-shadow-color" },
-        //     { name: "Shadow type", property: "box-shadow-type" },
-      
-        //   ],
-        // },
+        
         {
           id: "background-color",
           property: "background-color",
@@ -212,16 +212,17 @@ export const styleManager = {
       name: "Rotate",
       open: false,
      
-      buildProps: [ "transform"],
+      buildProps: ["transition", "transform"],
       properties: [
-        // {
-        //   property: "transition",
-        //   properties: [
-        //     { name: "Property", property: "transition-property"  },
-        //     { name: "Duration", property: "transition-duration" },
-        //     // { name: "Easing", property: "transition-timing-function" },
-        //   ],
-        // },
+        {
+          property: "transition",
+          properties: [
+            { name: "Property", property: "transition-property"  },
+            { name: "Duration", property: "transition-duration" },
+            { name: "Easing", property: "transition-timing-function" },
+            // { name: "loop", property: "transition-timing-function" },
+          ],
+        },
         {
           property: "transform",
           properties: [
@@ -664,7 +665,9 @@ export const styles = [
 "https://www.w3schools.com/w3css/4/w3.css",
 "https://fonts.googleapis.com/icon?family=Material+Icons",
 "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
-"https://unpkg.com/grapesjs/dist/css/grapes.min.css"
+"https://unpkg.com/grapesjs/dist/css/grapes.min.css",
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
 ];
 
 export const toggleSidebar = (fromEditor) => {

@@ -169,7 +169,7 @@ const Signup = () => {
          
           <p className="policies">
             By clicking signup you agree to our terms data policy and cookies
-            policy you may recieve SMS notification from us and can opt out
+            policy.After registeration you may be directed to login
           </p>
           <button className="submit-sign" onClick={submitForm}>
             {" "}

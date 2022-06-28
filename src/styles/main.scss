@@ -190,6 +190,9 @@ html {
   color:black
 }
 
+
+
+
 // ******** to change color of blocks ********
 // .gjs-four-color-h{
 // color:yellow
@@ -360,4 +363,23 @@ html {
 .grp-handler-cp-wrap input[type="color"] {
   opacity: 0;
   cursor: pointer;
+}
+.gjs-sm-sector .gjs-sm-stack #gjs-sm-add, .gjs-clm-tags .gjs-sm-stack #gjs-sm-add{
+
+ color:black;
+}
+.nav-link{
+  padding:5px 3px 5px 15px
+  // padding: 5px;
+}
+
+// element.style {
+// }
+// ul#myTab {
+// }
+.nav {
+    margin-left: -10px;
+}
+.nav-tabs{
+  border-top: 2px solid black;
 }

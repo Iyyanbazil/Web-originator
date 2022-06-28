@@ -29,12 +29,12 @@ setislogin(parselog)
                     )}
                     {/* <Link to="/create/byTemplate"  className="create_link2">Create</Link> */}
                     <br/><br/>
-                    <Link className='link-learn'>Learn More?</Link>
+                    <a href="/Support#renamepages" className='link-learn'>Learn More?</a>
                 </div>
                 <div className='second-grid'>
 
                     <h2><b>Create by <br/>Drag & Drop</b></h2>
-                    <p className="para-after-head">Design from blank use editor and many built in components.Style them and many more for Free!</p>
+                    <p className="para-after-head">Design from blank page use editor and many built in components.Style them and many more for Free!</p>
                     {islogin && (
                     <Link to="/createPage" className="create_link2">Create</Link>
                     )}
@@ -46,7 +46,7 @@ setislogin(parselog)
                         
                 
                     {/* <Link to="/login" target="_blank" className="create_link2">Create</Link><br/><br/> */}
-                    <Link className='link-learn'>Learn More?</Link>
+                    <a href="/Support/#download" className='link-learn'>Learn More?</a>
                 </div>
             </div>
 
